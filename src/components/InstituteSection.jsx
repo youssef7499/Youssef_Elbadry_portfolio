@@ -28,7 +28,7 @@ export const InstituteSection = () => {
         <div className="max-w-3xl mb-12 text-start">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md text-xs font-mono uppercase tracking-wider text-[#E5A83B] bg-[#E5A83B]/10 border border-[#E5A83B]/30 mb-3 font-bold">
             <HeartHandshake className="w-3.5 h-3.5" />
-            <span>{lang === 'ar' ? 'التعاون المؤسسي' : 'Institutional Collaboration'}</span>
+            <span>{lang === 'ar' ? 'شراكات ومؤسسات' : 'Institutional Collaboration'}</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#07231D] dark:text-[#F7EFE4]">
             {t('institutes.title')}
@@ -58,7 +58,7 @@ export const InstituteSection = () => {
                       {getIcon(inst.id)}
                     </div>
                     <span className="text-[11px] font-mono uppercase tracking-wider px-3 py-1 rounded-full bg-[#E5A83B]/15 text-[#E5A83B] border border-[#E5A83B]/30 font-bold">
-                      {lang === 'ar' ? 'محرر رئيسي' : 'Lead Editor'}
+                      {lang === 'ar' ? 'مونتير أساسي' : 'Lead Editor'}
                     </span>
                   </div>
 

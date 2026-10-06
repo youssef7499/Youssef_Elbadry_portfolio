@@ -3,7 +3,7 @@ import { useLanguage } from '../context/LanguageContext';
 import { projectsData } from '../data/projectsData';
 import { VideoModal } from './VideoModal';
 import { Play, Eye, Clock, Film, ChevronLeft, ChevronRight } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 export const ProjectShowcase = () => {
   const { lang, t, isRTL } = useLanguage();
@@ -94,7 +94,7 @@ export const ProjectShowcase = () => {
   };
 
   return (
-    <section id="projects" className="pt-16 pb-12 sm:pt-20 sm:pb-16 relative bg-[#FAF7F2] dark:bg-[#06201A] overflow-hidden">
+    <section id="projects" className="pt-14 pb-12 sm:pt-20 sm:pb-16 relative bg-[#FAF7F2] dark:bg-[#06201A] overflow-hidden">
       
       {/* Background Subtle Gradient Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[450px] bg-[#E5A83B]/8 rounded-full blur-[140px] pointer-events-none" />
@@ -102,9 +102,9 @@ export const ProjectShowcase = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-10 gap-6 text-start">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-6 sm:mb-8 gap-5 text-start">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md text-xs font-mono uppercase tracking-wider text-[#E5A83B] bg-[#E5A83B]/10 border border-[#E5A83B]/30 mb-2.5 font-bold">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md text-xs font-mono uppercase tracking-wider text-[#E5A83B] bg-[#E5A83B]/10 border border-[#E5A83B]/30 mb-2 font-bold">
               <Film className="w-3.5 h-3.5" />
               <span>{t('projects.badge')}</span>
             </div>
@@ -124,15 +124,15 @@ export const ProjectShowcase = () => {
             </p>
           </div>
 
-          {/* Filter Tabs & Arrow Navigation Toolbar */}
-          <div className="flex items-center gap-3 self-start md:self-auto flex-wrap">
-            {/* Filter Tabs */}
-            <div className="flex items-center gap-1.5 p-1 rounded-xl border border-[#07231D]/10 dark:border-[#E5A83B]/20 bg-[#F4EFE6] dark:bg-[#092821] overflow-x-auto shadow-sm">
+          {/* Desktop Filter Tabs & Desktop Arrow Controls (Hidden on mobile) */}
+          <div className="hidden md:flex items-center gap-3">
+            {/* Filter Tabs on Desktop */}
+            <div className="flex items-center gap-1.5 p-1 rounded-xl border border-[#07231D]/10 dark:border-[#E5A83B]/20 bg-[#F4EFE6] dark:bg-[#092821] shadow-sm">
               {filterTabs.map((tab) => (
                 <button
                   key={tab.id}
                   onClick={() => setActiveFilter(tab.id)}
-                  className={`px-3 py-1.5 text-xs font-bold rounded-lg transition-all whitespace-nowrap flex-shrink-0 cursor-pointer ${
+                  className={`px-3 py-1.5 text-xs font-bold rounded-lg transition-all whitespace-nowrap cursor-pointer ${
                     activeFilter === tab.id
                       ? 'bg-[#E5A83B] text-[#07231D] shadow-md font-black'
                       : 'text-[#416358] dark:text-[#A3BFB7] hover:text-[#E5A83B]'
@@ -143,7 +143,7 @@ export const ProjectShowcase = () => {
               ))}
             </div>
 
-            {/* Header Arrow Navigation Buttons */}
+            {/* Desktop Arrows */}
             <div className="flex items-center gap-2">
               <button
                 onClick={handlePrev}
@@ -174,16 +174,67 @@ export const ProjectShowcase = () => {
           </div>
         </div>
 
+        {/* MOBILE SPECIFIC: Full-Width Clean Scrollable Filter Tabs */}
+        <div className="md:hidden w-full mb-3">
+          <div className="w-full overflow-x-auto no-scrollbar scroll-smooth touch-pan-x py-1.5 px-2 flex items-center gap-2 border border-[#07231D]/10 dark:border-[#E5A83B]/20 bg-[#F4EFE6] dark:bg-[#092821] rounded-xl shadow-sm">
+            {filterTabs.map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveFilter(tab.id)}
+                className={`px-3 py-1.5 text-xs font-bold rounded-lg transition-all whitespace-nowrap flex-shrink-0 cursor-pointer ${
+                  activeFilter === tab.id
+                    ? 'bg-[#E5A83B] text-[#07231D] shadow-md font-black'
+                    : 'text-[#416358] dark:text-[#A3BFB7] hover:text-[#E5A83B]'
+                }`}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* MOBILE SPECIFIC: Dedicated Video Navigation Bar (Clear, not stuck under filters) */}
+        <div className="md:hidden flex items-center justify-between mb-3 px-1">
+          <span className="text-xs font-mono font-bold text-[#E5A83B] flex items-center gap-1.5">
+            <span className="w-2 h-2 rounded-full bg-[#E5A83B] animate-pulse" />
+            <span>{t('projects.mobileNavHint')}</span>
+          </span>
+
+          <div className="flex items-center gap-2">
+            <button
+              onClick={handlePrev}
+              disabled={currentIndex === 0}
+              className={`w-9 h-9 rounded-lg border-2 border-[#E5A83B]/40 bg-white dark:bg-[#0D332B] text-[#E5A83B] flex items-center justify-center transition-all shadow-sm ${
+                currentIndex === 0 ? 'opacity-30' : 'active:scale-90 text-[#E5A83B]'
+              }`}
+              title="Previous"
+            >
+              {isRTL ? <ChevronRight className="w-4 h-4 stroke-[2.5]" /> : <ChevronLeft className="w-4 h-4 stroke-[2.5]" />}
+            </button>
+
+            <button
+              onClick={handleNext}
+              disabled={currentIndex === filteredProjects.length - 1}
+              className={`w-9 h-9 rounded-lg border-2 border-[#E5A83B]/40 bg-white dark:bg-[#0D332B] text-[#E5A83B] flex items-center justify-center transition-all shadow-sm ${
+                currentIndex === filteredProjects.length - 1 ? 'opacity-30' : 'active:scale-90 text-[#E5A83B]'
+              }`}
+              title="Next"
+            >
+              {isRTL ? <ChevronLeft className="w-4 h-4 stroke-[2.5]" /> : <ChevronRight className="w-4 h-4 stroke-[2.5]" />}
+            </button>
+          </div>
+        </div>
+
       </div>
 
-      {/* CAROUSEL TRACK (Pure Arrow Driven - Unwanted trackpad/mouse horizontal scroll completely blocked) */}
+      {/* CAROUSEL TRACK (Pure Arrow & Touch Swipe - Trackpad/mouse wheel horizontal scroll locked) */}
       <div
         ref={containerRef}
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
         className="relative w-full overflow-hidden select-none"
       >
-        {/* Floating Side Left Arrow (Desktop) */}
+        {/* Floating Side Left Arrow (Desktop Only) */}
         <button
           onClick={handlePrev}
           disabled={currentIndex === 0}
@@ -197,7 +248,7 @@ export const ProjectShowcase = () => {
           {isRTL ? <ChevronRight className="w-6 h-6 stroke-[2.5]" /> : <ChevronLeft className="w-6 h-6 stroke-[2.5]" />}
         </button>
 
-        {/* Floating Side Right Arrow (Desktop) */}
+        {/* Floating Side Right Arrow (Desktop Only) */}
         <button
           onClick={handleNext}
           disabled={currentIndex === filteredProjects.length - 1}
@@ -225,8 +276,8 @@ export const ProjectShowcase = () => {
                 ref={(el) => (cardRefs.current[index] = el)}
                 className={`flex-shrink-0 transition-all duration-300 ${
                   isWide
-                    ? 'w-[360px] sm:w-[460px] lg:w-[500px]'
-                    : 'w-[280px] sm:w-[310px] lg:w-[330px]'
+                    ? 'w-[340px] sm:w-[460px] lg:w-[500px]'
+                    : 'w-[270px] sm:w-[310px] lg:w-[330px]'
                 } ${
                   index === currentIndex
                     ? 'scale-100 opacity-100 ring-2 ring-[#E5A83B]/50 rounded-2xl'
@@ -246,17 +297,10 @@ export const ProjectShowcase = () => {
         </motion.div>
       </div>
 
-      {/* Bottom Controls: Step Dots & Arrow Navigation Hint */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-5 flex flex-col sm:flex-row items-center justify-between gap-4">
-        {/* Nav Hint */}
-        <p className="text-xs font-mono text-[#E5A83B] font-bold">
-          {lang === 'ar'
-            ? '⟵ استخدم الأسهم للتنقل بين الفيديوهات ⟶'
-            : '⟵ Use arrows to navigate productions ⟶'}
-        </p>
-
-        {/* Clickable Step Dots */}
-        <div className="flex items-center gap-1.5 flex-wrap justify-center">
+      {/* Bottom Controls: Step Dots & Live Arrow Navigation */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-4 sm:mt-5 flex items-center justify-between gap-4">
+        {/* Step Dots */}
+        <div className="flex items-center gap-1.5 flex-wrap">
           {filteredProjects.map((_, i) => (
             <button
               key={i}
@@ -270,6 +314,11 @@ export const ProjectShowcase = () => {
             />
           ))}
         </div>
+
+        {/* Live Project Indicator */}
+        <span className="text-xs font-mono font-bold text-[#416358] dark:text-[#A3BFB7]">
+          {currentIndex + 1} / {filteredProjects.length}
+        </span>
       </div>
 
       {/* Full-Screen Modal Player */}

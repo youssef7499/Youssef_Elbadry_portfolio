@@ -3,62 +3,63 @@ export const translations = {
     nav: {
       about: "About",
       institutes: "Institutes",
-      projects: "Selected Works",
-      beforeAfter: "Color & Sound",
+      projects: "Selected Work",
+      beforeAfter: "Editing Alchemy",
       workflow: "Process",
       contact: "Get in Touch",
-      hireMe: "Let's Talk",
+      hireMe: "Hire Me (WhatsApp)",
     },
     hero: {
-      badge: "Available for Select Projects & Retainers",
+      badge: "Available for Retainers & Select Projects",
       greeting: "Hello, I am",
       name: "Youssef El-Badry",
-      role: "Lead Video Editor & Visual Storyteller",
-      description: "Specializing in high-retention YouTube formats, engaging educational media, and high-impact short-form reels. Main social video editor for prominent Islamic institutes.",
-      ctaPrimary: "View Showcase",
+      role: "Lead Video Editor & Narrative Storyteller",
+      description: "Crafting high-retention YouTube long-form edits, high-impact vertical short-form reels, and cinematic educational content. Trusted lead social platforms editor for 3 premier Islamic educational institutes.",
+      ctaPrimary: "Explore Productions",
       ctaSecondary: "Chat on WhatsApp",
       quickStats: {
-        views: "50M+ Views Generated",
-        delivered: "300+ Videos Edited",
-        institutes: "3 Major Institutes",
-        retention: "+68% Avg. Retention",
+        views: "50M+ Views",
+        delivered: "300+ Deliveries",
+        institutes: "3 Lead Institutes",
+        retention: "68%+ Avg. Retention",
       },
     },
     institutes: {
-      title: "Trusted by Leading Educational & Islamic Institutes",
-      subtitle: "Managing end-to-end visual editing, pacing, and multi-platform distribution for premier institutions.",
+      title: "Trusted by Premier Educational Institutes",
+      subtitle: "Leading complete post-production workflows: pacing architecture, color science, sound design, and viral social distribution.",
       bilqalam: {
-        name: "Bilqalam",
+        name: "Bilqalam Institute",
         nameAr: "بالقلم",
-        category: "Islamic Knowledge & Arabic Calligraphy",
-        role: "Lead Platform Editor",
-        impact: "Dynamic lectures, reels, and aesthetic educational series reaching global students.",
+        category: "Islamic Sciences & Arabic Calligraphy",
+        role: "Lead Platforms Editor",
+        impact: "Edited 120+ scholarly lectures and high-aesthetic reels bridging classical Arabic knowledge with global learners.",
       },
       islamroots: {
         name: "IslamRoots",
         nameAr: "جذور الإسلام",
         category: "History, Foundations & Identity",
-        role: "Social Media Editor",
-        impact: "Documentary-style edits, engaging historical narratives, and viral short-form clips.",
+        role: "Documentary & Social Editor",
+        impact: "Engineered engaging historical documentaries and viral reels generating over 22M impressions.",
       },
       qurangrace: {
         name: "Quran Grace",
         nameAr: "نعمة القرآن",
-        category: "Quranic Reflections & Spiritual Media",
-        role: "Visual & Audio Editor",
-        impact: "Atmospheric recitation visuals, synchronized typographic subtitling, and high-reverence content.",
+        category: "Quranic Reflection & Spiritual Media",
+        role: "Lead Audio-Visual Storyteller",
+        impact: "Designed reverent recitation visuals, syllable-accurate kinetic typography, and immersive audio restoration.",
       },
     },
     projects: {
-      badge: "Curated Portfolio",
+      badge: "Selected Work",
       title: "Featured Productions",
-      subtitle: "From retention-engineered YouTube documentaries to viral 9:16 vertical short-form reels.",
+      subtitle: "From high-retention engineered YouTube documentaries to viral 9:16 vertical short-form reels.",
       filterAll: "All Works",
       filterShorts: "Reels & Shorts (9:16)",
       filterYoutube: "YouTube & Long-form (16:9)",
-      filterDocumentary: "Documentaries & Lectures",
-      watchPreview: "Hover to Preview",
-      clickToPlay: "Click to Watch Full Screen",
+      filterDocumentary: "Documentaries",
+      watchPreview: "Hover to preview clip",
+      clickToPlay: "Click to watch full video",
+      mobileNavHint: "Tap arrows to navigate",
       viewsLabel: "Views",
       durationLabel: "Duration",
       clientLabel: "Client",
@@ -67,57 +68,58 @@ export const translations = {
     beforeAfter: {
       badge: "Interactive Breakdown",
       title: "The Editing Alchemy",
-      subtitle: "Drag the slider to see the transformation from flat camera log footage to cinematic grading and rich sound design.",
+      subtitle: "Drag the slider to compare flat camera log footage with the final color-graded, mastered cut.",
       beforeLabel: "RAW LOG FOOTAGE (UNGRADED)",
       afterLabel: "FINAL COLOR GRADE & SOUND FX",
       tip: "Drag slider left & right to compare",
       features: [
         {
-          title: "Color Science",
-          desc: "Balanced skin tones, rich contrast curve, and film emulation tailored for each story."
+          title: "Cinematic Color Science",
+          desc: "Balanced skin tones, rich film emulation curves, and contrast tailored for every scene."
         },
         {
-          title: "Sound Architecture",
-          desc: "Multi-layered atmospheric foley, dialogue de-noise, EQ polishing, and rhythmic scoring."
+          title: "Immersive Sound Architecture",
+          desc: "Dialogue de-noising, spatial foley effects, and rhythmic scoring locked to picture cuts."
         },
         {
-          title: "Retention Pacing",
-          desc: "Seamless visual punch-ins, kinetic typography, and B-roll alignment."
+          title: "Retention-Engineered Pacing",
+          desc: "Seamless visual punch-ins, kinetic typography, and dynamic B-roll alignment."
         }
       ]
     },
     workflow: {
-      badge: "My Process",
+      badge: "Production Process",
       title: "How We Turn Ideas Into Visual Impact",
+      stackBadge: "Creative & AI Editing Stack",
       steps: [
         {
           num: "01",
-          title: "Story Arc & Hook Crafting",
-          desc: "Analyzing the first 5 seconds to lock viewer attention, carving out filler words and structuring a compelling narrative hook."
+          title: "Hook Architecture & Story Arc",
+          desc: "Engineering the first 5 seconds to lock viewer attention, carving out pauses, and shaping an irresistible narrative."
         },
         {
           num: "02",
-          title: "The Assembly & Dynamic Pacing",
-          desc: "Precision jump cuts, deliberate breathing pauses, and strategic zoom-ins to maintain peak cognitive engagement."
+          title: "Dynamic Assembly & Retention Pacing",
+          desc: "Sharp jump cuts, deliberate breathing moments, and strategic zoom punch-ins to maintain peak cognitive engagement."
         },
         {
           num: "03",
-          title: "Motion Design & Custom Graphics",
-          desc: "Handcrafted Arabic & English typography, minimalist icons, track mattes, and seamless transition effects."
+          title: "Kinetic Motion & Curated Graphics",
+          desc: "Custom typography, Freepik visual assets, track mattes, and seamless scene transitions."
         },
         {
           num: "04",
-          title: "Master Audio & Color Grade",
-          desc: "Studio-grade audio mastering, background ambience, spatial sound cues, and final REC.709 / HDR color export."
+          title: "Master Audio & Color Finishing",
+          desc: "DaVinci Resolve color grading, multi-track audio polishing, and REC.709 final master export."
         }
       ]
     },
     contact: {
       badge: "Let's Collaborate",
       title: "Ready to Elevate Your Content?",
-      subtitle: "Whether you need a full-time lead editor for your channel or high-impact reels for your institute, my inbox is open.",
+      subtitle: "Whether you need a dedicated lead editor for your channel or high-impact reels for your institute, let's talk.",
       whatsappBtn: "Chat on WhatsApp",
-      whatsappSub: "Fastest response time (~15 mins)",
+      whatsappSub: "Fastest response (~15 mins)",
       copyEmail: "Copy Email Address",
       emailCopied: "Copied to Clipboard!",
       emailAddress: "youssefalbadry02@gmail.com",
@@ -135,136 +137,138 @@ export const translations = {
   },
   ar: {
     nav: {
-      about: "عن المحرر",
-      institutes: "المؤسسات",
-      projects: "معرض الأعمال",
-      beforeAfter: "الألوان والصوت",
-      workflow: "خطوات العمل",
-      contact: "تواصل معي",
-      hireMe: "ابدأ مشروعك",
+      about: "مين أنا",
+      institutes: "مؤسسات اشتغلت معاها",
+      projects: "أعمالي",
+      beforeAfter: "قبل وبعد المونتاج",
+      workflow: "طريقة الشغل",
+      contact: "نتكلم سوا",
+      hireMe: "كلمنا واتساب",
     },
     hero: {
-      badge: "متاح للمشاريع الجديدة والتعاقدات الشهرية",
-      greeting: "أهلاً بك، أنا",
+      badge: "متاح لمشاريع جديدة وتعاقدات شهرية",
+      greeting: "أهلاً بيك، أنا",
       name: "يوسف البدري",
-      role: "محرر فيديو ومخرج سردي بصري",
-      description: "متخصص في صناعة محتوى يوتيوب عالي البقاء (High-Retention) وفيديوهات المنصات التعليمية والمحتوى القصير المؤثر. المحرر الرئيسي لمنصات التواصل لثلاث مؤسسات إسلامية رائدة.",
-      ctaPrimary: "استعرض أعمالي",
-      ctaSecondary: "تواصل عبر واتساب",
+      role: "مونتير وسارد بصري (Video Editor)",
+      description: "بركز على الفيديوهات الطويلة لليوتيوب بنسبة ريتنشن عالية، وفيديوهات السوشيال ميديا القصيرة (الريلز والشورتس) اللي بتشد العين وتثبت المشاهد من أول ثانية. ماسك المونتاج وصناعة المحتوى لـ 3 من أكبر المؤسسات الإسلامية والتعليمية.",
+      ctaPrimary: "شوف شغلي",
+      ctaSecondary: "كلمنا واتساب",
       quickStats: {
         views: "+50 مليون مشاهدة",
-        delivered: "+300 فيديو مكتمل",
-        institutes: "3 مؤسسات رائدة",
-        retention: "68%+ زيادة في المشاهدة",
+        delivered: "+300 فيديو اتسلم",
+        institutes: "3 مؤسسات تعليمية",
+        retention: "زيادة ريتنشن المشاهدة",
       },
     },
     institutes: {
-      title: "محل ثقة كبرى المنصات والمؤسسات التعليمية",
-      subtitle: "إدارة شاملة لعمليات المونتاج، ضبط الإيقاع، وصناعة الهوية البصرية عبر مختلف المنصات الرقمية.",
+      title: "مؤسسات ومنصات بتثق في شغلي",
+      subtitle: "مسؤول عن مونتاج الفيديوهات بالكامل؛ من التقطيع وضبط الإيقاع، لحد التلوين وهندسة الصوت والهوية البصرية لكل منصة.",
       bilqalam: {
         name: "بالقلم",
         nameAr: "Bilqalam",
         category: "العلوم الإسلامية وفنون الخط العربي",
-        role: "المحرر الرئيسي للمنصات",
-        impact: "مونتاج الدروس العلمية وسلاسل المقاطع القصيرة بأسلوب جمالي راقٍ يخاطب المتعلمين حول العالم.",
+        role: "المونتير الأساسي للمنصات",
+        impact: "مونتاج الدروس العلمية وسلاسل المقاطع القصيرة بأسلوب هادي وراقي يخاطب المتعلمين حول العالم.",
       },
       islamroots: {
         name: "جذور الإسلام",
         nameAr: "IslamRoots",
         category: "التاريخ، التأصيل والهوية الإسلامية",
-        role: "محرر منصات التواصل",
-        impact: "أفلام وثائقية وسرد تاريخي مشوق ومقاطع قصيرة سريعة الانتشار تحقق أعلى معدلات التفاعل.",
+        role: "مونتير السوشيال ميديا",
+        impact: "أفلام وثائقية وسرد تاريخي ممتع ومقاطع ريلز سريعة بتعمل تفاعل وملايين المشاهدات.",
       },
       qurangrace: {
         name: "نعمة القرآن",
         nameAr: "Quran Grace",
         category: "التدبر القرآني والمحتوى الروحاني",
-        role: "محرر المحتوى البصري والصوتي",
-        impact: "تصميم بصري للمقاطع القرآنية، كتابة نصوص متحركة متزامنة بدقة، وتوليف صوتي عالي النقاء.",
+        role: "مونتير الصوت والصورة",
+        impact: "إخراج بصري للمقاطع القرآنية، نصوص متحركة مضبوطة بالملي مع التلاوة، وهندسة صوت عالية النقاء.",
       },
     },
     projects: {
-      badge: "أبرز الإنتاجات",
-      title: "أعمال مختارة بعناية",
-      subtitle: "من أفلام يوتيوب الوثائقية المحبوكة بذكاء إلى الريلز والفيديوهات القصيرة الرأسية فائقة الجاذبية.",
-      filterAll: "جميع الأعمال",
+      badge: "أعمال مختارة",
+      title: "شوية من شغلي اللي بحبه",
+      subtitle: "من الفيديوهات الطويلة والأفلام الوثائقية لليوتيوب، لحد الريلز والشورتس السريعة اللي بتجيب أعلى تفاعل.",
+      filterAll: "كل الأعمال",
       filterShorts: "ريلز وشورتس (9:16)",
-      filterYoutube: "يوتيوب وأفلام (16:9)",
-      filterDocumentary: "وثائقيات ودروس",
-      watchPreview: "مرر لمعاينة المقطع",
-      clickToPlay: "انقر للمشاهدة في وضع ملء الشاشة",
+      filterYoutube: "يوتيوب وفيديوهات عريضة (16:9)",
+      filterDocumentary: "وثائقيات وسلاسل",
+      watchPreview: "مرر الماوس لمعاينة المقطع",
+      clickToPlay: "دوس لمشاهدة الفيديو كامل",
+      mobileNavHint: "دوس على الأسهم للتنقل بين الفيديوهات",
       viewsLabel: "المشاهدات",
       durationLabel: "المدة",
       clientLabel: "العميل",
-      formatLabel: "الصيغة",
+      formatLabel: "المقاس",
     },
     beforeAfter: {
-      badge: "مقارنة تفاعلية",
-      title: "سحر ما وراء الكواليس",
-      subtitle: "حرّك المؤشر لمشاهدة الفرق بين تصوير الكاميرا الخام غير المعالج (Flat Log) والناتج النهائي بعد التلوين السينمائي والهندسة الصوتية.",
-      beforeLabel: "لقطة خام قبل المعالجة (RAW LOG)",
-      afterLabel: "النتيجة النهائية (تلوين + هندسة صوت)",
-      tip: "اسحب الشريط يميناً ويساراً للمقارنة",
+      badge: "قبل وبعد المونتاج",
+      title: "شوف بنفسك الفرق قبل وبعد الشغل",
+      subtitle: "حرّك المؤشر يمين وشمال عشان تشوف الفيديو الخام زي ما اتصور في الكاميرا، والنتيجة النهائية بعد تظبيط الألوان وهندسة الصوت.",
+      beforeLabel: "الخام قبل المونتاج (RAW LOG)",
+      afterLabel: "النتيجة النهائية (تلوين + ماستر صوت)",
+      tip: "اسحب المؤشر يمين وشمال للمقارنة",
       features: [
         {
-          title: "علم وتدرج الألوان",
-          desc: "ضبط دقيق لدرجات البشرة، تباين غني، وإضفاء طابع سينمائي يخدم عمق المشهد."
+          title: "تظبيط وتلوين سينمائي",
+          desc: "تعديل ألوان البشرة والإضاءة والكونتراست، عشان المشهد يطلع سينمائي ومريح للعين ويوصل الإحساس المطلوب."
         },
         {
-          title: "الهندسة الصوتية",
-          desc: "تنقية تامة للتشويش، مؤثرات صوتية مكانية (SFX)، وتناغم حي مع الموسيقى والمؤثرات الإيقاعية."
+          title: "هندسة وتصميم الصوت",
+          desc: "تنقية الدوشة والوش، تركيب مؤثرات صوتية (SFX) مظبوطة مع حركة الصورة، وتظبيط طبقات الصوت باحتراف."
         },
         {
-          title: "إيقاع المشاهدة والموشن",
-          desc: "تقطيع مدروس يحافظ على تركيز المشاهد، نصوص عربية حركية، وإبراز أدق تفاصيل المحتوى."
+          title: "إيقاع يشد المشاهد (ريتنشن)",
+          desc: "تقطيع يمنع الملل، زووم في اللحظات المناسبة، وكتابة متحركة تساعد المشاهد يكمل الفيديو للآخر."
         }
       ]
     },
     workflow: {
-      badge: "منهجية العمل",
-      title: "كيف نُحوّل الفكرة إلى إنتاج يخطف الأبصار",
+      badge: "طريقة الشغل",
+      title: "إزاي بنحول الفكرة لفيديو ممتع يشد الناس",
+      stackBadge: "الأدوات والبرامج اللي بشتغل بيها",
       steps: [
         {
           num: "01",
-          title: "هندسة الخطاف والقصة (Hook & Script)",
-          desc: "تحليل الثواني الخمس الأولى لجذب عين المشاهد، حذف الزوائد اللغوية وبناء تسلسل سردي مشوق."
+          title: "أول 5 ثواني والقصة (Hook & Story)",
+          desc: "بنركز على الهوك من أول ثواني عشان نثبت المشاهد، نشيل أي تطويل أو حشو، ونرتب تسلسل الكلام بشكل مشوق."
         },
         {
           num: "02",
-          title: "المونتاج الخام وضبط الإيقاع",
-          desc: "تقطيع احترافي متناسق، تقريب وإبعاد ديناميكي (Punch-ins)، ووقفات محسوبة تمنع الملل."
+          title: "التقطيع وتظبيط الإيقاع (Pacing)",
+          desc: "تقطيع نضيف وسريع، زوومات محسوبة في اللحظة الصح، ونَفَس محسوب بين الجمل عشان الفيديو ميفقدش طاقته."
         },
         {
           num: "03",
-          title: "الموشن جرافيك والخطوط التفاعلية",
-          desc: "تصميم نصوص متحركة أنيقة باللغتين العربية والإنجليزية مع أيقونات ومؤثرات انتقال طبيعية."
+          title: "النصوص الحركية وعناصر الجرافيك",
+          desc: "كتابة نصوص متحركة بخطوط نظيفة، مع أيقونات وخامات من فري بيك وتأثيرات بصرية تخدم الفكرة وتوضح المعنى."
         },
         {
           num: "04",
-          title: "المكساج الصوتي والتلوين السينمائي",
-          desc: "معالجة شاملة لطبقات الصوت، إضافة مؤثرات بيئية وتلوين احترافي مطابق لأعلى معايير الشاشات الرقمية."
+          title: "الفينش النهائي: ألوان وماستر صوت",
+          desc: "تلوين المشهد بدقة على دافينشي ريزولف، مكساج صوتي نقي ومريح للأذن، والتصدير بأعلى جودة جاهز للنشر على كل المنصات."
         }
       ]
     },
     contact: {
-      badge: "لنبدأ التعاون",
-      title: "جاهز للارتقاء بجودة محتواك؟",
-      subtitle: "سواء كنت تبحث عن محرر أساسي لمنصات مؤسستك أو إنتاج ريلز وأفلام تحقق ملايين المشاهدات، أنا هنا لمساعدتك.",
-      whatsappBtn: "محادثة فورية على واتساب",
-      whatsappSub: "أسرع وسيلة للتواصل (الرد خلال دقائق)",
-      copyEmail: "نسخ البريد الإلكتروني",
-      emailCopied: "تم نسخ البريد بنجاح!",
+      badge: "يلا نبدأ سوا",
+      title: "جاهز نطور محتواك ونعليه لفوق؟",
+      subtitle: "سواء محتاج مونتير أساسي لقناتك ومؤسستك، أو فيديوهات ريلز مخصصة تحقق ملايين المشاهدات؛ كلمني وخلينا ننسق سوا.",
+      whatsappBtn: "ابعتلي رسالة على واتساب",
+      whatsappSub: "أسرع وسيلة تواصل (برد خلال دقايق)",
+      copyEmail: "نسخ الإيميل",
+      emailCopied: "تم نسخ الإيميل بنجاح!",
       emailAddress: "youssefalbadry02@gmail.com",
-      instagramBtn: "متابعة على إنستغرام",
+      instagramBtn: "تابعني على إنستغرام",
       instagramUser: "@youssef.elbadry_0",
       phone: "+20 114 473 5499",
-      location: "القاهرة، مصر · متاح للعمل عن بُعد عالمياً",
-      readyText: "متاح حالياً لاستقبال عقود الرعاية الشهرية والمشاريع المميزة."
+      location: "القاهرة، مصر · وبشتغل مع عملاء ومؤسسات في كل مكان أونلاين",
+      readyText: "متاح حالياً للتعاقدات الشهرية والمشاريع المميزة."
     },
     footer: {
-      tagline: "صُنع بشغف لتقديم أعلى معايير السرد البصري والمونتاج السينمائي.",
-      rights: "جميع الحقوق محفوظة.",
-      backToTop: "العودة للأعلى",
+      tagline: "مونتاج معمول بشغف لتقديم أعلى جودة بصرية وسرد قصصي ممتع.",
+      rights: "جميع الحقوق محفوظة © يوسف البدري.",
+      backToTop: "الرجوع للأعلى",
     }
   }
 };

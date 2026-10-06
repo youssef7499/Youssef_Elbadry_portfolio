@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { editingSkills } from '../data/projectsData';
-import { GitCommit, Cpu, Check } from 'lucide-react';
+import { GitCommit, Cpu, Check, Wrench } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export const WorkflowSection = () => {
@@ -9,11 +9,11 @@ export const WorkflowSection = () => {
   const steps = t('workflow.steps') || [];
 
   return (
-    <section id="workflow" className="py-24 border-t border-[#07231D]/10 dark:border-[#E5A83B]/20 bg-[#FAF7F2] dark:bg-[#06201A]">
+    <section id="workflow" className="py-20 sm:py-24 border-t border-[#07231D]/10 dark:border-[#E5A83B]/20 bg-[#FAF7F2] dark:bg-[#06201A]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="max-w-3xl mb-16 text-start">
+        <div className="max-w-3xl mb-12 sm:mb-16 text-start">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md text-xs font-mono uppercase tracking-wider text-[#E5A83B] bg-[#E5A83B]/10 border border-[#E5A83B]/30 mb-3 font-bold">
             <GitCommit className="w-3.5 h-3.5" />
             <span>{t('workflow.badge')}</span>
@@ -48,36 +48,47 @@ export const WorkflowSection = () => {
 
               <div className="mt-6 pt-4 border-t border-[#07231D]/10 dark:border-[#E5A83B]/20 flex items-center gap-2 text-[#E5A83B] text-xs font-mono font-bold">
                 <Check className="w-3.5 h-3.5 stroke-[2.5]" />
-                <span>{lang === 'ar' ? 'معيار جودة معتمد' : 'Standard Pipeline'}</span>
+                <span>{lang === 'ar' ? 'خطوة أساسية في كل فيديو' : 'Core Quality Standard'}</span>
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* Software Arsenal Bar */}
-        <div className="mt-16 p-8 rounded-2xl border border-[#07231D]/10 dark:border-[#E5A83B]/25 bg-[#F4EFE6] dark:bg-[#092821] shadow-md">
-          <div className="flex items-center gap-2 mb-6">
-            <Cpu className="w-4 h-4 text-[#E5A83B]" />
+        {/* Software Stack & Tools (CapCut Pro, DaVinci, Freepik, Google Flow, Claude Code) */}
+        <div className="mt-14 sm:mt-16 p-6 sm:p-8 rounded-2xl border border-[#07231D]/10 dark:border-[#E5A83B]/25 bg-[#F4EFE6] dark:bg-[#092821] shadow-md">
+          <div className="flex items-center gap-2 mb-6 text-start">
+            <Wrench className="w-4 h-4 text-[#E5A83B]" />
             <h4 className="text-xs font-mono uppercase tracking-wider text-[#E5A83B] font-bold">
-              {lang === 'ar' ? 'الترسانة التقنية والبرامج' : 'Software Stack & Tools'}
+              {t('workflow.stackBadge')}
             </h4>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
             {editingSkills.map((skill, i) => (
-              <div key={i} className="text-start">
-                <div className="flex items-center justify-between">
-                  <h5 className="font-bold text-sm text-[#07231D] dark:text-[#F7EFE4]">
-                    {lang === 'ar' ? skill.nameAr : skill.nameEn}
-                  </h5>
-                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#E5A83B]/15 text-[#E5A83B] font-bold border border-[#E5A83B]/30">
-                    {skill.level}
+              <motion.div
+                key={skill.id || i}
+                whileHover={{ y: -3 }}
+                className="p-4 sm:p-4.5 rounded-xl border border-[#07231D]/10 dark:border-[#E5A83B]/20 bg-white dark:bg-[#0D332B] text-start flex flex-col justify-between shadow-sm hover:border-[#E5A83B] transition-all"
+              >
+                <div>
+                  <div className="flex items-center justify-between gap-1 mb-1.5">
+                    <h5 className="font-extrabold text-sm text-[#07231D] dark:text-[#F7EFE4]">
+                      {lang === 'ar' ? skill.nameAr : skill.nameEn}
+                    </h5>
+                    <span className="text-[9px] font-mono px-2 py-0.5 rounded bg-[#E5A83B]/15 text-[#E5A83B] font-bold border border-[#E5A83B]/30 whitespace-nowrap">
+                      {skill.level}
+                    </span>
+                  </div>
+
+                  <span className="text-[10px] font-mono font-semibold text-[#E5A83B] block mb-2">
+                    {lang === 'ar' ? skill.categoryAr : skill.categoryEn}
                   </span>
+
+                  <p className="text-[11px] sm:text-xs text-[#416358] dark:text-[#C5D8D2] leading-relaxed">
+                    {lang === 'ar' ? skill.descAr : skill.descEn}
+                  </p>
                 </div>
-                <p className="text-xs text-[#416358] dark:text-[#A3BFB7] mt-1.5 leading-relaxed">
-                  {lang === 'ar' ? skill.descAr : skill.descEn}
-                </p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>

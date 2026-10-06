@@ -136,19 +136,19 @@ export const Hero = ({ onOpenShowreel }) => {
               <div className="space-y-0.5">
                 <span className="text-lg sm:text-2xl font-black font-mono text-[#07231D] dark:text-[#F7EFE4]">50M+</span>
                 <p className="text-[11px] sm:text-xs text-[#416358] dark:text-[#A3BFB7] font-semibold">
-                  {lang === 'ar' ? 'مشاهدات محققة' : 'Platform Views'}
+                  {lang === 'ar' ? 'إجمالي المشاهدات' : 'Platform Views'}
                 </p>
               </div>
               <div className="space-y-0.5">
                 <span className="text-lg sm:text-2xl font-black font-mono text-[#07231D] dark:text-[#F7EFE4]">300+</span>
                 <p className="text-[11px] sm:text-xs text-[#416358] dark:text-[#A3BFB7] font-semibold">
-                  {lang === 'ar' ? 'فيديو منجز' : 'Videos Delivered'}
+                  {lang === 'ar' ? 'فيديو اتسلم' : 'Videos Delivered'}
                 </p>
               </div>
               <div className="space-y-0.5">
                 <span className="text-lg sm:text-2xl font-black font-mono text-[#E5A83B]">68%+</span>
                 <p className="text-[11px] sm:text-xs text-[#416358] dark:text-[#A3BFB7] font-semibold">
-                  {lang === 'ar' ? 'متوسط البقاء' : 'Avg. Retention'}
+                  {lang === 'ar' ? 'ريتنشن المشاهدة' : 'Avg. Retention'}
                 </p>
               </div>
             </motion.div>
@@ -208,20 +208,20 @@ export const Hero = ({ onOpenShowreel }) => {
                 </div>
               </div>
 
-              {/* Bottom Caption Container with Frosted Backdrop (No overlapping!) */}
+              {/* Bottom Caption Container with Frosted Backdrop */}
               <div className="absolute bottom-3 sm:bottom-4 inset-x-3 sm:inset-x-4 z-20">
                 <div className="p-3 sm:p-3.5 rounded-xl bg-black/75 backdrop-blur-md border border-white/10 text-start shadow-lg">
                   <p className="text-[10px] sm:text-xs font-mono text-[#E5A83B] uppercase tracking-wider font-bold">
-                    {lang === 'ar' ? 'انقر لتشغيل شو ريل الأعمال' : 'Click to Watch Master Showreel'}
+                    {lang === 'ar' ? 'دوس هنا وشوف الشو ريل كامل' : 'Click to Watch Master Showreel'}
                   </p>
                   <h4 className="text-xs sm:text-sm font-bold tracking-tight text-white mt-0.5 truncate">
-                    {lang === 'ar' ? 'أفضل إنتاجات المؤسسات الإسلامية واليوتيوب' : 'Featured Institutional Productions'}
+                    {lang === 'ar' ? 'أقوى لقطات من شغل المؤسسات واليوتيوب' : 'Featured Institutional Productions'}
                   </h4>
                 </div>
               </div>
             </div>
 
-            {/* Clean Identity Bar Placed Directly Below Video (Zero overlap, mobile-friendly!) */}
+            {/* Clean Identity Bar Placed Directly Below Video */}
             <div className="mt-3.5 p-3 sm:p-3.5 rounded-xl border border-[#07231D]/10 dark:border-[#E5A83B]/25 bg-white dark:bg-[#0D332B] shadow-lg flex items-center justify-between gap-3">
               <div className="flex items-center gap-3">
                 <img
@@ -241,7 +241,7 @@ export const Hero = ({ onOpenShowreel }) => {
 
               <div className="hidden sm:flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-bold bg-[#E5A83B]/15 text-[#E5A83B] border border-[#E5A83B]/30 whitespace-nowrap">
                 <ShieldCheck className="w-3.5 h-3.5" />
-                <span>{lang === 'ar' ? 'محرر معتمد' : 'Lead Editor'}</span>
+                <span>{lang === 'ar' ? 'مونتير أساسي' : 'Lead Editor'}</span>
               </div>
             </div>
 

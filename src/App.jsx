@@ -17,16 +17,16 @@ function PortfolioContent() {
   const mainShowreel = {
     id: "main-showreel",
     titleEn: "Youssef El-Badry — Master Showreel 2026",
-    titleAr: "يوسف البدري — شو ريل الأعمال الرئيسي 2026",
+    titleAr: "يوسف البدري — شو ريل الأعمال 2026",
     clientEn: "Bilqalam · IslamRoots · Quran Grace",
     clientAr: "بالقلم · جذور الإسلام · نعمة القرآن",
     format: "16:9",
     category: "youtube",
     videoUrl: "/videos/The Teenage Prayer Struggle.mp4",
     tagsEn: ["High Retention", "Sound Design", "Pacing", "Color Master"],
-    tagsAr: ["محتوى عالي البقاء", "هندسة صوتية", "إيقاع سريع", "تلوين سينمائي"],
+    tagsAr: ["ريتنشن عالي", "ماستر صوت", "إيقاع سريع", "تلوين سينمائي"],
     descriptionEn: "A high-octane montage highlighting high-retention YouTube edits, dynamic short-form hooks, and spiritual cinematic sequences.",
-    descriptionAr: "مونتاج متسارع يعرض أفضل إنتاجات اليوتيوب والمحتوى القصير المؤثر واللقطات السينمائية المعالجة باحترافية."
+    descriptionAr: "تجميعة سريعة وممتعة بتعرض أفضل لقطات من شغل اليوتيوب الطويل والريلز القصيرة، مع هندسة صوت وتلوين سينمائي عالي الجودة."
   };
 
   return (

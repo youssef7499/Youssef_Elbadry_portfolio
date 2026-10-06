@@ -2,7 +2,7 @@ export const projectsData = [
   {
     id: "where-is-allah",
     titleEn: "Where Is Allah? // The Essential Creed",
-    titleAr: "أين الله؟ // تأصيل العقيدة بأسلوب مرئي",
+    titleAr: "أين الله؟ // تأصيل وبناء العقيدة بأسلوب بصري",
     clientEn: "IslamRoots",
     clientAr: "جذور الإسلام",
     category: "shorts",
@@ -12,9 +12,9 @@ export const projectsData = [
     thumbnail: "https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&w=800&q=80",
     videoUrl: "/videos/Where Is Allah.mp4",
     tagsEn: ["High Retention", "Kinetic Subtitles", "Sound Design"],
-    tagsAr: ["محتوى عالي البقاء", "ترجمة متحركة", "هندسة صوتية"],
+    tagsAr: ["ريتنشن عالي", "ترجمة متحركة", "تصميم صوت"],
     descriptionEn: "Deep theological reflection engineered for high retention with dramatic pauses and dynamic text tracking.",
-    descriptionAr: "مقطع إيماني عميق مبني بهندسة إيقاع مشدودة وترجمة متحركة تتزامن مع نبرة المتحدث."
+    descriptionAr: "فيديو تأصيلي عميق مبني بهوك قوي ووقفات درامية محسوبة مع كتابة حركية مظبوطة مع نبرة الصوت."
   },
   {
     id: "teenage-prayer",
@@ -29,9 +29,9 @@ export const projectsData = [
     thumbnail: "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=800&q=80",
     videoUrl: "/videos/The Teenage Prayer Struggle.mp4",
     tagsEn: ["Storytelling", "Emotional Arc", "Youth Focus"],
-    tagsAr: ["سرد قصصي", "منحنى عاطفي", "محتوى شبابي"],
+    tagsAr: ["سرد قصصي", "محتوى شبابي", "إيقاع سريع"],
     descriptionEn: "Engaging youth narrative addressing relatable spiritual hurdles with punchy zoom-ins and modern pacing.",
-    descriptionAr: "معالجة بصرية تفاعلية لتحديات الشباب مع الصلاة باستخدام تقريب ديناميكي ومؤثرات صوتية متناسقة."
+    descriptionAr: "معالجة بصرية تفاعلية لتحديات الشباب مع الصلاة باستخدام زوومات سريعة ومؤثرات صوتية تخلي المشاهد مكمل الفيديو."
   },
   {
     id: "kha-vs-haa",
@@ -46,9 +46,9 @@ export const projectsData = [
     thumbnail: "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80",
     videoUrl: "/videos/The Kha Vs Haa Test.mp4",
     tagsEn: ["Tajweed", "Interactive Callouts", "Educational"],
-    tagsAr: ["تجويد وفونولوجيا", "مؤثرات تفاعلية", "محتوى تعليمي"],
+    tagsAr: ["تجويد ونطق", "عناصر تفاعلية", "محتوى تعليمي"],
     descriptionEn: "Gamified educational phonetics reel with interactive visual callouts for Arabic calligraphy and pronunciation.",
-    descriptionAr: "ريلز تعليمي تفاعلي يعرض الفروق الصوتية لمخارج الحروف مع مؤثرات بصرية جذابة."
+    descriptionAr: "ريلز تعليمي ممتع وتفاعلي يوضح الفروق الصوتية لمخارج الحروف مع مؤثرات وعناصر جرافيك تشد العين."
   },
   {
     id: "qalqalah",
@@ -63,9 +63,9 @@ export const projectsData = [
     thumbnail: "https://images.unsplash.com/photo-1564769625905-50e93615e769?auto=format&fit=crop&w=800&q=80",
     videoUrl: "/videos/Qalqalah2.mp4",
     tagsEn: ["Quranic Audio", "Tajweed Sync", "Clean Subtitles"],
-    tagsAr: ["صوت قرآني نقي", "تزامن التجويد", "نصوص واضحة"],
+    tagsAr: ["صوت نقي", "تزامن بالملي", "كتابة واضحة"],
     descriptionEn: "Studio audio de-noise and rhythmic typography illustrating vibration rules in sacred recitation.",
-    descriptionAr: "تنقية صوتية عالية وإبراز مراتب القلقلة بنصوص حركية متزامنة مع الصوت القرآني."
+    descriptionAr: "تنقية صوتية فائقة وعرض مراتب القلقلة بنصوص حركية واضحة متزامنة مع الصوت القرآني."
   },
   {
     id: "chasing-world",
@@ -80,14 +80,14 @@ export const projectsData = [
     thumbnail: "https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?auto=format&fit=crop&w=800&q=80",
     videoUrl: "/videos/Chasing The World.mp4",
     tagsEn: ["Atmospheric", "Cinematic Cut", "Fast Hook"],
-    tagsAr: ["طابع سينمائي", "مونتاج متسارع", "خطاف بصري قاطع"],
+    tagsAr: ["طابع سينمائي", "إيقاع مشدود", "هوك قاطع"],
     descriptionEn: "Kinetic visual contrast between modern hustle culture and timeless spiritual purpose.",
-    descriptionAr: "مونتاج متسارع يبرز التناقض بين الانشغال بالدنيا والغايات الروحية بأسلوب مؤثر."
+    descriptionAr: "مونتاج متسارع يبرز التناقض بين الانشغال بالدنيا والهدف الحقيقي من الحياة بأسلوب مؤثر وواقعي."
   },
   {
     id: "screen-time",
     titleEn: "Screen Time & Digital Distraction",
-    titleAr: "إدمان الشاشات: ضياع العمر في التفاهات",
+    titleAr: "إدمان الشاشات: ضياع العمر في التليفون",
     clientEn: "IslamRoots",
     clientAr: "جذور الإسلام",
     category: "shorts",
@@ -97,9 +97,9 @@ export const projectsData = [
     thumbnail: "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=800&q=80",
     videoUrl: "/videos/Screen Time.mp4",
     tagsEn: ["Viral Reel", "Sound Design", "Data Overlays"],
-    tagsAr: ["ريلز فيروسي", "مؤثرات صوتية", "رسوم بيانية متحركة"],
+    tagsAr: ["ريلز فيروسي", "تصميم صوت", "رسوم متحركة"],
     descriptionEn: "Sharp rhythmic cuts with digital glitch accents dissecting modern phone addiction.",
-    descriptionAr: "تقطيع إيقاعي سريع ومؤثرات صوتية رقمية تحاكي صدمة الواقع لمدمني الهواتف."
+    descriptionAr: "تقطيع إيقاعي سريع مع مؤثرات رقمية ورسوم توضيحية تحاكي صدمة الواقع لمدمني التليفونات."
   },
   {
     id: "insan",
@@ -114,9 +114,9 @@ export const projectsData = [
     thumbnail: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=800&q=80",
     videoUrl: "/videos/Insan.mp4",
     tagsEn: ["Spiritual", "Reflective Pacing", "Color Graded"],
-    tagsAr: ["محتوى تأملي", "إيقاع وقور", "تلوين دافئ"],
+    tagsAr: ["محتوى تأملي", "تلوين دافئ", "هندسة صوت"],
     descriptionEn: "Warm color pallet with meditative music mastering reflecting upon human vulnerabilities.",
-    descriptionAr: "تلوين دافئ ومتناغم مع موسيقى تصويرية هادئة تتأمل في خلق الإنسان وتكريمه."
+    descriptionAr: "تلوين دافئ ومريح للعين مع هندسة صوتية هادية تتأمل في خلق الإنسان وتكريمه بأسلوب وقور."
   },
   {
     id: "simba-metaphor",
@@ -131,9 +131,9 @@ export const projectsData = [
     thumbnail: "https://images.unsplash.com/photo-1534188753412-3e26d0d618d6?auto=format&fit=crop&w=800&q=80",
     videoUrl: "/videos/Simba.mp4",
     tagsEn: ["High Energy", "Pop Culture Hook", "Master Sound"],
-    tagsAr: ["طاقة عالية", "إسقاط سينمائي", "مكساج صوتي ملحمي"],
+    tagsAr: ["طاقة عالية", "إسقاط سينمائي", "ماستر صوت"],
     descriptionEn: "Viral hook using beloved cinema metaphor to inspire accountability and personal identity.",
-    descriptionAr: "ربط سينمائي مشوق ومؤثر يستحضر الهوية والمسؤولية بأسلوب فيروسي حقق انتشاراً واسعاً."
+    descriptionAr: "إسقاط سينمائي مشوق ومحبوب يربط بين فيلم سيمبا ونداء الهوية والمسؤولية بأسلوب حقق ملايين المشاهدات."
   },
   {
     id: "lailahaelaallah",
@@ -148,9 +148,9 @@ export const projectsData = [
     thumbnail: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=800&q=80",
     videoUrl: "/videos/lailahaelaAllah.mp4",
     tagsEn: ["Tawheed", "Reverent Mood", "Typographic Art"],
-    tagsAr: ["توحيد", "أجواء مهيبة", "خط عربي حركي"],
+    tagsAr: ["توحيد", "أجواء مهيبة", "خط حركي"],
     descriptionEn: "Majestic Arabic typography with reverent acoustics delivering the foundational phrase of faith.",
-    descriptionAr: "تصميم حركي مهيب لكلمات التوحيد مع هندسة صوتية نقية تعزز هيبة المعنى في القلوب."
+    descriptionAr: "تصميم حركي مهيب لكلمات التوحيد مع هندسة صوتية نقية تعزز هيبة الكلمة في النفوس."
   },
   {
     id: "ini-reflection",
@@ -165,9 +165,9 @@ export const projectsData = [
     thumbnail: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80",
     videoUrl: "/videos/Ini.mp4",
     tagsEn: ["Minimalist", "Soulful", "Clean Delivery"],
-    tagsAr: ["مينيماليزم", "سكينة روحية", "إخراج بصري ناعم"],
+    tagsAr: ["مينيماليزم", "سكينة", "إخراج ناعم"],
     descriptionEn: "Minimalist visual composition designed to evoke quiet contemplation and trust.",
-    descriptionAr: "تكوين بصري هادئ يعتمد على نقاء الصوت وبساطة المشهد لإيصال المعنى بصفاء."
+    descriptionAr: "تكوين بصري هادي يعتمد على نقاء الصوت وبساطة الكادر لإيصال المعنى بصفاء وراحة قلب."
   }
 ];
 
@@ -179,7 +179,7 @@ export const clientInstitutes = [
     taglineEn: "Islamic Knowledge & Arabic Calligraphy",
     taglineAr: "العلوم الإسلامية وفنون الخط العربي",
     roleEn: "Lead Social Platforms Video Editor",
-    roleAr: "المحرر الرئيسي لمنصات التواصل الاجتماعي",
+    roleAr: "المونتير الأساسي لمنصات التواصل",
     statsEn: "120+ Episodes · 18M+ Total Views",
     statsAr: "120+ حلقة · 18+ مليون مشاهدة",
     logoColor: "from-amber-500/20 to-orange-500/10",
@@ -192,7 +192,7 @@ export const clientInstitutes = [
     taglineEn: "History, Foundations & Civilizations",
     taglineAr: "التاريخ، التأصيل والحضارة",
     roleEn: "Documentary & Short-Form Editor",
-    roleAr: "محرر الأفلام الوثائقية والريلز السريع",
+    roleAr: "مونتير الأفلام الوثائقية والريلز",
     statsEn: "95+ Reels · 22M+ Total Views",
     statsAr: "95+ مقطع · 22+ مليون مشاهدة",
     logoColor: "from-emerald-500/20 to-teal-500/10",
@@ -205,7 +205,7 @@ export const clientInstitutes = [
     taglineEn: "Spiritual Media & Quranic Reflection",
     taglineAr: "الإعلام الروحاني والتدبر القرآني",
     roleEn: "Audio/Visual Editor & Typographer",
-    roleAr: "محرر المحتوى البصري والصوتي والنصوص",
+    roleAr: "مونتير المحتوى البصري والصوتي والنصوص",
     statsEn: "140+ Productions · 15M+ Total Views",
     statsAr: "140+ إنتاج · 15+ مليون مشاهدة",
     logoColor: "from-blue-500/20 to-cyan-500/10",
@@ -213,37 +213,56 @@ export const clientInstitutes = [
   }
 ];
 
+// Youssef's verified 5 tools arsenal (CapCut Pro, DaVinci, Freepik, Google Flow, Claude Code)
 export const editingSkills = [
   {
-    nameEn: "Adobe Premiere Pro",
-    nameAr: "أدوبي بريمير برو",
-    category: "NLE Suite",
-    level: "Expert / 6+ Years",
-    descEn: "Lightning fast timeline assembly, multi-cam synchronization, and workflow shortcuts.",
-    descAr: "تقطيع فائق السرعة، مزامنة الكاميرات المتعددة، وإدارة مشاريع الإنتاج الكبرى."
+    id: "capcut",
+    nameEn: "CapCut Pro",
+    nameAr: "كاب كت برو",
+    categoryEn: "Short-Form & Hooks",
+    categoryAr: "ريلز وشورتس وسرعة إيقاع",
+    level: "Pro Mastery",
+    descEn: "Rapid vertical timeline assembly, kinetic typography, viral sound sync, and high-retention cuts.",
+    descAr: "تقطيع سريع ومشدود للريلز والشورتس، نصوص حركية تفاعلية، وتظبيط إيقاع عالي الريتنشن."
   },
   {
+    id: "davinci",
     nameEn: "DaVinci Resolve Studio",
-    nameAr: "دافينشي ريزولف ستوديو",
-    category: "Color & Mastering",
-    level: "Advanced Grading",
-    descEn: "ACES color management, node-based grading, skin-tone isolation, and HDR delivery.",
-    descAr: "إدارة ألوان ACES، تدرج الألوان المتقدم، عزل ألوان البشرة ومعايير HDR."
+    nameAr: "دافينشي ريزولف",
+    categoryEn: "Color & Audio Master",
+    categoryAr: "تلوين سينمائي وماستر صوت",
+    level: "Color Science",
+    descEn: "Advanced cinematic color grading, skin tone isolation, node workflows, and clean audio restoration.",
+    descAr: "تلوين المشاهد ودرجات البشرة باحترافية، وإخراج صوتي نقي بدون وش أو تشويش."
   },
   {
-    nameEn: "Adobe After Effects",
-    nameAr: "أدوبي أفتر إفكتس",
-    category: "Motion & VFX",
-    level: "Advanced Motion",
-    descEn: "Kinetic typography, tracking, rotoscoping, callouts, and clean 2D motion graphics.",
-    descAr: "نصوص متحركة متقدمة، تتبع الحركة، مؤثرات بصرية وعناصر جرافيك تفاعلية."
+    id: "freepik",
+    nameEn: "Freepik Premium",
+    nameAr: "فري بيك",
+    categoryEn: "Visual Assets & B-Roll",
+    categoryAr: "خامات بصرية وجرافيك",
+    level: "Asset Pipeline",
+    descEn: "Curated motion textures, vector elements, film overlays, and high-production B-roll assets.",
+    descAr: "خامات بصرية راقية، عناصر جرافيك وفيكتور، ومؤثرات ولقطات B-roll تدعم فكرة كل مشهد."
   },
   {
-    nameEn: "Audio Architecture & Foley",
-    nameAr: "الهندسة الصوتية والمكساج",
-    category: "Sound Design",
-    level: "Studio Grade",
-    descEn: "Dialogue restoration (iZotope RX), atmospheric soundbeds, custom risers and impacts.",
-    descAr: "تنقية التسجيلات الصوتية، بناء الخلفيات البيئية، وتأثيرات الصدمات والحركة."
+    id: "googleflow",
+    nameEn: "Google Flow",
+    nameAr: "جوجل فلو",
+    categoryEn: "AI Creative Flow",
+    categoryAr: "ذكاء اصطناعي وتوليد بصري",
+    level: "AI Visuals",
+    descEn: "AI-assisted concept visualization, creative moodboard flow, and next-gen visual asset generation.",
+    descAr: "توليد عناصر وخلفيات ولوحات إلهام بصرية ذكية تخدم قصة الفيديو وتوسع الخيال."
+  },
+  {
+    id: "claudecode",
+    nameEn: "Claude Code",
+    nameAr: "كلود كود",
+    categoryEn: "Hook & Script Engineering",
+    categoryAr: "هندسة الهوكات والسكريبت",
+    level: "AI Scripting",
+    descEn: "Prompt-driven hook engineering, retention pacing strategy, and narrative script optimization.",
+    descAr: "هندسة السكريبتات، صياغة الهوكات القوية، وتطوير أفكار الفيديوهات لشد المشاهد من أول ثانية."
   }
 ];

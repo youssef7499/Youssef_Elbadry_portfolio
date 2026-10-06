@@ -19,11 +19,11 @@ export const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-24 border-t border-[#07231D]/10 dark:border-[#E5A83B]/20 bg-[#F4EFE6]/60 dark:bg-[#07241E] relative">
+    <section id="contact" className="py-20 sm:py-24 border-t border-[#07231D]/10 dark:border-[#E5A83B]/20 bg-[#F4EFE6]/60 dark:bg-[#07241E] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Editorial Heading */}
-        <div className="max-w-3xl mx-auto text-center mb-16 space-y-4">
+        <div className="max-w-3xl mx-auto text-center mb-12 sm:mb-16 space-y-3.5">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono uppercase tracking-wider text-[#E5A83B] bg-[#E5A83B]/10 border border-[#E5A83B]/30 font-bold">
             <Sparkles className="w-3.5 h-3.5" />
             <span>{t('contact.badge')}</span>
@@ -54,7 +54,7 @@ export const ContactSection = () => {
                 <MessageCircle className="w-6 h-6 fill-current" />
               </div>
               <span className="text-[11px] font-mono uppercase tracking-wider text-[#E5A83B] font-bold">
-                {lang === 'ar' ? 'الرد الفوري' : 'Instant Messaging'}
+                {lang === 'ar' ? 'أسرع تواصل' : 'Instant Messaging'}
               </span>
               <h3 className="text-xl font-bold text-[#07231D] dark:text-[#F7EFE4] mt-1">
                 WhatsApp
@@ -83,7 +83,7 @@ export const ContactSection = () => {
                 <Mail className="w-6 h-6" />
               </div>
               <span className="text-[11px] font-mono uppercase tracking-wider text-[#E5A83B] font-bold">
-                {lang === 'ar' ? 'البريد الرسمي' : 'Inquiries & Retainers'}
+                {lang === 'ar' ? 'إيميل الشغل' : 'Inquiries & Retainers'}
               </span>
               <h3 className="text-xl font-bold text-[#07231D] dark:text-[#F7EFE4] mt-1">
                 Email
@@ -96,7 +96,7 @@ export const ContactSection = () => {
             <div className="mt-6 pt-4 border-t border-[#07231D]/10 dark:border-[#E5A83B]/20">
               <button
                 onClick={handleCopyEmail}
-                className="w-full py-2.5 px-3 rounded-lg bg-[#FAF7F2] dark:bg-[#092821] hover:bg-[#E5A83B] hover:text-[#07231D] dark:hover:bg-[#E5A83B] dark:hover:text-[#07231D] text-[#07231D] dark:text-[#F7EFE4] text-xs font-bold flex items-center justify-center gap-2 transition-colors shadow-sm"
+                className="w-full py-2.5 px-3 rounded-lg bg-[#FAF7F2] dark:bg-[#092821] hover:bg-[#E5A83B] hover:text-[#07231D] dark:hover:bg-[#E5A83B] dark:hover:text-[#07231D] text-[#07231D] dark:text-[#F7EFE4] text-xs font-bold flex items-center justify-center gap-2 transition-colors shadow-sm cursor-pointer"
               >
                 {copied ? (
                   <>
@@ -128,7 +128,7 @@ export const ContactSection = () => {
                 <Instagram className="w-6 h-6" />
               </div>
               <span className="text-[11px] font-mono uppercase tracking-wider text-[#E5A83B] font-bold">
-                {lang === 'ar' ? 'المعرض اليومي' : 'Social & Behind The Scenes'}
+                {lang === 'ar' ? 'كواليس وفيديوهات' : 'Social & Behind The Scenes'}
               </span>
               <h3 className="text-xl font-bold text-[#07231D] dark:text-[#F7EFE4] mt-1">
                 Instagram
@@ -137,7 +137,7 @@ export const ContactSection = () => {
                 {t('contact.instagramUser')}
               </p>
               <p className="text-xs text-[#416358] dark:text-[#A3BFB7] mt-2">
-                {lang === 'ar' ? 'شاهد كواليس المونتاج وأحدث المقاطع' : 'Watch reels, breakdowns & updates'}
+                {lang === 'ar' ? 'شوف كواليس المونتاج وأجدد الريلز' : 'Watch reels, breakdowns & updates'}
               </p>
             </div>
 

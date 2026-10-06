@@ -369,7 +369,7 @@ export const BeforeAfterSlider = () => {
                     <Play className="w-7 h-7 fill-current" />
                   </div>
                   <span className="text-xs font-mono font-bold text-[#E5A83B]">
-                    {lang === 'ar' ? 'انقر لتشغيل المقارنة' : 'Click to Play Comparison'}
+                    {lang === 'ar' ? 'دوس هنا وشوف المقارنة شغالة' : 'Click to Play Comparison'}
                   </span>
                 </div>
               </div>
