@@ -4,29 +4,32 @@
 
 @layer base {
   :root {
-    --bg-primary: #ffffff;
-    --bg-secondary: #f8f9fa;
-    --text-primary: #121212;
-    --text-muted: #6b7280;
-    --border-color: rgba(0, 0, 0, 0.08);
+    --bg-primary: #FAF8F5;
+    --bg-secondary: #F4EFE6;
+    --text-primary: #07211B;
+    --text-muted: #4B635C;
+    --border-color: rgba(7, 33, 27, 0.1);
+    --brand-gold: #E5A83B;
   }
 
   .dark {
-    --bg-primary: #0a0a0c;
-    --bg-secondary: #121318;
-    --text-primary: #f3f4f6;
-    --text-muted: #9ca3af;
-    --border-color: rgba(255, 255, 255, 0.08);
+    --bg-primary: #061C16;
+    --bg-secondary: #0A261F;
+    --text-primary: #F7EFE4;
+    --text-muted: #95ADA5;
+    --border-color: rgba(229, 168, 59, 0.15);
+    --brand-gold: #E5A83B;
   }
 
   body {
     background-color: var(--bg-primary);
     color: var(--text-primary);
     overflow-x: hidden;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
 }
 
-/* Custom Scrollbar */
+/* Custom Scrollbar styled with logo amber */
 ::-webkit-scrollbar {
   width: 7px;
 }
@@ -36,30 +39,31 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(150, 150, 150, 0.3);
+  background: rgba(229, 168, 59, 0.3);
   border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(150, 150, 150, 0.5);
+  background: rgba(229, 168, 59, 0.6);
 }
 
-/* Glassmorphism helpers */
+/* Glassmorphism helpers with brand pine and gold accents */
 .glass-panel {
-  background: rgba(255, 255, 255, 0.65);
+  background: rgba(250, 248, 245, 0.85);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(7, 33, 27, 0.08);
 }
 
 .dark .glass-panel {
-  background: rgba(18, 20, 28, 0.75);
+  background: rgba(11, 40, 33, 0.8);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(229, 168, 59, 0.16);
 }
 
-/* Smooth Video Transitions */
-video {
-  object-fit: cover;
+/* Selection Color matching logo gold */
+::selection {
+  background-color: #E5A83B;
+  color: #061C16;
 }

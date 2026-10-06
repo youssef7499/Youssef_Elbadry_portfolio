@@ -1,15 +1,14 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import { X, Play, Pause, Volume2, VolumeX, Maximize, RotateCcw } from 'lucide-react';
+import { X, Play, Pause, Volume2, VolumeX, Maximize } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export const VideoModal = ({ project, onClose }) => {
-  const { lang, t, isRTL } = useLanguage();
+  const { lang } = useLanguage();
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(true);
   const [isMuted, setIsMuted] = useState(false);
   const [progress, setProgress] = useState(0);
-  const [duration, setDuration] = useState(0);
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -49,12 +48,6 @@ export const VideoModal = ({ project, onClose }) => {
     }
   };
 
-  const handleLoadedMetadata = () => {
-    if (videoRef.current) {
-      setDuration(videoRef.current.duration);
-    }
-  };
-
   const handleSeek = (e) => {
     if (videoRef.current) {
       const seekTime = (parseFloat(e.target.value) / 100) * videoRef.current.duration;
@@ -64,10 +57,8 @@ export const VideoModal = ({ project, onClose }) => {
   };
 
   const handleFullscreen = () => {
-    if (videoRef.current) {
-      if (videoRef.current.requestFullscreen) {
-        videoRef.current.requestFullscreen();
-      }
+    if (videoRef.current && videoRef.current.requestFullscreen) {
+      videoRef.current.requestFullscreen();
     }
   };
 
@@ -77,7 +68,7 @@ export const VideoModal = ({ project, onClose }) => {
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/90 backdrop-blur-xl">
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-brand-pine-950/90 backdrop-blur-2xl">
         {/* Overlay click to close */}
         <div className="absolute inset-0" onClick={onClose} />
 
@@ -86,27 +77,27 @@ export const VideoModal = ({ project, onClose }) => {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.95 }}
-          className={`relative z-10 bg-neutral-950 border border-neutral-800 rounded-2xl overflow-hidden shadow-2xl flex flex-col max-h-[92vh] w-full ${
+          className={`relative z-10 bg-brand-pine-950 border-2 border-brand-gold/30 rounded-2xl overflow-hidden shadow-2xl flex flex-col max-h-[92vh] w-full ${
             isVertical ? 'max-w-md' : 'max-w-4xl'
           }`}
           onClick={(e) => e.stopPropagation()}
         >
           {/* Top Bar */}
-          <div className="flex items-center justify-between px-4 py-3 border-b border-neutral-800/80 bg-neutral-900/50">
+          <div className="flex items-center justify-between px-4 py-3 border-b border-brand-gold/20 bg-brand-pine-900/80">
             <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-emerald-500" />
-              <span className="text-xs font-mono font-medium text-neutral-300">
+              <span className="w-2.5 h-2.5 rounded-full bg-brand-gold animate-pulse" />
+              <span className="text-xs font-mono font-bold text-brand-gold">
                 {lang === 'ar' ? project.clientAr : project.clientEn}
               </span>
-              <span className="text-xs text-neutral-600">·</span>
-              <span className="text-xs font-mono text-neutral-400 uppercase">
+              <span className="text-xs text-brand-pine-600">·</span>
+              <span className="text-xs font-mono text-brand-cream-ivory uppercase">
                 {project.format}
               </span>
             </div>
 
             <button
               onClick={onClose}
-              className="p-1.5 rounded-lg bg-neutral-800 hover:bg-neutral-700 text-neutral-300 hover:text-white transition-colors"
+              className="p-1.5 rounded-lg bg-brand-pine-850 hover:bg-brand-gold hover:text-brand-pine-950 text-brand-cream-ivory transition-colors"
               title="Close (Esc)"
             >
               <X className="w-4 h-4" />
@@ -122,7 +113,6 @@ export const VideoModal = ({ project, onClose }) => {
               playsInline
               loop
               onTimeUpdate={handleTimeUpdate}
-              onLoadedMetadata={handleLoadedMetadata}
               onClick={togglePlay}
               className={`w-full cursor-pointer ${
                 isVertical ? 'aspect-[9/16] max-h-[65vh] object-cover' : 'aspect-video object-contain'
@@ -135,15 +125,15 @@ export const VideoModal = ({ project, onClose }) => {
                 onClick={togglePlay}
                 className="absolute inset-0 flex items-center justify-center bg-black/40 cursor-pointer"
               >
-                <div className="w-16 h-16 rounded-full bg-white/90 text-neutral-950 flex items-center justify-center pl-1 shadow-2xl">
+                <div className="w-16 h-16 rounded-full bg-brand-gold text-brand-pine-950 flex items-center justify-center pl-1 shadow-2xl">
                   <Play className="w-7 h-7 fill-current" />
                 </div>
               </div>
             )}
 
             {/* Custom Modern Control Overlay */}
-            <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-4 opacity-90 transition-opacity">
-              {/* Progress Slider */}
+            <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/95 via-black/60 to-transparent p-4 opacity-95 transition-opacity">
+              {/* Progress Slider in Brand Gold */}
               <input
                 type="range"
                 min="0"
@@ -151,7 +141,7 @@ export const VideoModal = ({ project, onClose }) => {
                 step="0.1"
                 value={progress}
                 onChange={handleSeek}
-                className="w-full h-1 bg-neutral-700 rounded-lg appearance-none cursor-pointer accent-white mb-3"
+                className="w-full h-1.5 bg-neutral-700 rounded-lg appearance-none cursor-pointer accent-[#E5A83B] mb-3"
               />
 
               <div className="flex items-center justify-between text-white">
@@ -160,14 +150,14 @@ export const VideoModal = ({ project, onClose }) => {
                     onClick={togglePlay}
                     className="p-1.5 rounded-md hover:bg-white/20 transition-colors"
                   >
-                    {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
+                    {isPlaying ? <Pause className="w-4 h-4 text-brand-gold" /> : <Play className="w-4 h-4" />}
                   </button>
 
                   <button
                     onClick={toggleMute}
                     className="p-1.5 rounded-md hover:bg-white/20 transition-colors"
                   >
-                    {isMuted ? <VolumeX className="w-4 h-4 text-red-400" /> : <Volume2 className="w-4 h-4" />}
+                    {isMuted ? <VolumeX className="w-4 h-4 text-red-400" /> : <Volume2 className="w-4 h-4 text-brand-gold" />}
                   </button>
                 </div>
 
@@ -177,7 +167,7 @@ export const VideoModal = ({ project, onClose }) => {
                     className="p-1.5 rounded-md hover:bg-white/20 transition-colors"
                     title="Fullscreen"
                   >
-                    <Maximize className="w-4 h-4" />
+                    <Maximize className="w-4 h-4 text-brand-gold" />
                   </button>
                 </div>
               </div>
@@ -185,11 +175,11 @@ export const VideoModal = ({ project, onClose }) => {
           </div>
 
           {/* Details Footer */}
-          <div className="p-4 sm:p-5 bg-neutral-900 border-t border-neutral-800 text-start">
-            <h3 className="text-base sm:text-lg font-bold text-white tracking-tight">
+          <div className="p-4 sm:p-5 bg-brand-pine-900 border-t border-brand-gold/20 text-start">
+            <h3 className="text-base sm:text-lg font-bold text-brand-cream-ivory tracking-tight">
               {lang === 'ar' ? project.titleAr : project.titleEn}
             </h3>
-            <p className="mt-1 text-xs sm:text-sm text-neutral-400 leading-relaxed">
+            <p className="mt-1 text-xs sm:text-sm text-brand-cream-300/80 leading-relaxed">
               {lang === 'ar' ? project.descriptionAr : project.descriptionEn}
             </p>
 
@@ -198,7 +188,7 @@ export const VideoModal = ({ project, onClose }) => {
               {(lang === 'ar' ? project.tagsAr : project.tagsEn).map((tag, i) => (
                 <span
                   key={i}
-                  className="px-2 py-0.5 rounded text-[11px] font-mono bg-neutral-800 text-neutral-300 border border-neutral-700"
+                  className="px-2 py-0.5 rounded text-[11px] font-mono bg-brand-gold/15 text-brand-gold border border-brand-gold/30 font-semibold"
                 >
                   #{tag}
                 </span>

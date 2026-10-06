@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import { ArrowUp, Heart } from 'lucide-react';
+import { ArrowUp } from 'lucide-react';
 
 export const Footer = () => {
   const { lang, t } = useLanguage();
@@ -10,37 +10,44 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="border-t border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950 py-12 transition-colors">
+    <footer className="border-t border-brand-pine-900/10 dark:border-brand-pine-800 bg-brand-cream-50 dark:bg-brand-pine-950 py-12 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
         
-        {/* Brand & Tagline */}
-        <div className="flex flex-col items-center md:items-start space-y-1">
-          <div className="flex items-center gap-2">
-            <span className="font-extrabold text-base text-neutral-950 dark:text-white">
-              {lang === 'ar' ? 'يوسف البدري' : 'Youssef El-Badry'}
-            </span>
-            <span className="text-neutral-400">·</span>
-            <span className="text-xs text-neutral-500 font-mono">
-              {lang === 'ar' ? 'مونتاج وسرد سينمائي' : 'Video Editor'}
-            </span>
+        {/* Brand & Logo */}
+        <div className="flex items-center gap-3.5">
+          <img
+            src="/logo.jpg"
+            alt="Logo"
+            className="w-10 h-10 rounded-full object-cover ring-2 ring-brand-gold/40 shadow-sm"
+          />
+          <div className="flex flex-col text-start">
+            <div className="flex items-center gap-2">
+              <span className="font-extrabold text-base text-brand-pine-950 dark:text-brand-cream-ivory">
+                {lang === 'ar' ? 'يوسف البدري' : 'Youssef El-Badry'}
+              </span>
+              <span className="text-brand-gold">·</span>
+              <span className="text-xs text-brand-gold font-mono font-semibold">
+                {lang === 'ar' ? 'مونتاج وسرد سينمائي' : 'Lead Video Editor'}
+              </span>
+            </div>
+            <p className="text-xs text-brand-pine-600 dark:text-brand-cream-300/70">
+              {t('footer.tagline')}
+            </p>
           </div>
-          <p className="text-xs text-neutral-500 dark:text-neutral-400">
-            {t('footer.tagline')}
-          </p>
         </div>
 
         {/* Back to top button */}
         <div className="flex items-center gap-4">
-          <span className="text-xs text-neutral-400 font-mono">
+          <span className="text-xs text-brand-pine-600 dark:text-brand-cream-300/60 font-mono">
             © {new Date().getFullYear()} {t('footer.rights')}
           </span>
 
           <button
             onClick={scrollToTop}
-            className="p-2.5 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-900 hover:bg-neutral-200 dark:hover:bg-neutral-800 text-neutral-700 dark:text-neutral-300 transition-colors"
+            className="p-2.5 rounded-xl border border-brand-pine-900/10 dark:border-brand-pine-800 bg-white dark:bg-brand-pine-900 hover:bg-brand-gold hover:text-brand-pine-950 text-brand-pine-900 dark:text-brand-cream-ivory transition-all shadow-sm"
             title={t('footer.backToTop')}
           >
-            <ArrowUp className="w-4 h-4" />
+            <ArrowUp className="w-4 h-4 stroke-[2.5]" />
           </button>
         </div>
 

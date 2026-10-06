@@ -1,13 +1,11 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import { Sliders, Volume2, VolumeX, Sparkles, Wand2, Eye } from 'lucide-react';
+import { Sliders, Volume2, Sparkles, Eye } from 'lucide-react';
 
 export const BeforeAfterSlider = () => {
-  const { lang, t, isRTL } = useLanguage();
+  const { lang, t } = useLanguage();
   const [sliderPosition, setSliderPosition] = useState(50);
   const [isDragging, setIsDragging] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(true);
-  const [isAudioEnhanced, setIsAudioEnhanced] = useState(true);
   const containerRef = useRef(null);
   const beforeVideoRef = useRef(null);
   const afterVideoRef = useRef(null);
@@ -16,7 +14,6 @@ export const BeforeAfterSlider = () => {
   useEffect(() => {
     const handleTimeUpdate = () => {
       if (beforeVideoRef.current && afterVideoRef.current) {
-        // Keep in sync within 0.1s tolerance
         if (Math.abs(beforeVideoRef.current.currentTime - afterVideoRef.current.currentTime) > 0.15) {
           afterVideoRef.current.currentTime = beforeVideoRef.current.currentTime;
         }
@@ -57,19 +54,19 @@ export const BeforeAfterSlider = () => {
   const features = t('beforeAfter.features') || [];
 
   return (
-    <section id="before-after" className="py-24 border-t border-neutral-200 dark:border-neutral-800/80 bg-neutral-50/50 dark:bg-neutral-900/30">
+    <section id="before-after" className="py-24 border-t border-brand-pine-900/10 dark:border-brand-pine-800 bg-brand-cream-100/40 dark:bg-brand-pine-950/40 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Title */}
         <div className="max-w-3xl mb-12 text-start">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md text-xs font-mono uppercase tracking-wider text-neutral-600 dark:text-neutral-400 bg-neutral-200/60 dark:bg-neutral-800/60 mb-3">
-            <Sliders className="w-3.5 h-3.5 text-amber-500" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md text-xs font-mono uppercase tracking-wider text-brand-gold bg-brand-gold/10 border border-brand-gold/30 mb-3 font-semibold">
+            <Sliders className="w-3.5 h-3.5" />
             <span>{t('beforeAfter.badge')}</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-neutral-950 dark:text-white">
+          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-brand-pine-950 dark:text-brand-cream-ivory">
             {t('beforeAfter.title')}
           </h2>
-          <p className="mt-3 text-sm sm:text-base text-neutral-600 dark:text-neutral-400">
+          <p className="mt-3 text-sm sm:text-base text-brand-pine-700/80 dark:text-brand-cream-300/80">
             {t('beforeAfter.subtitle')}
           </p>
         </div>
@@ -85,7 +82,7 @@ export const BeforeAfterSlider = () => {
             onTouchStart={() => setIsDragging(true)}
             onTouchEnd={() => setIsDragging(false)}
             onTouchMove={handleTouchMove}
-            className="relative w-full aspect-video rounded-2xl overflow-hidden border border-neutral-300 dark:border-neutral-700 bg-black shadow-2xl select-none cursor-ew-resize"
+            className="relative w-full aspect-video rounded-2xl overflow-hidden border-2 border-brand-pine-900/15 dark:border-brand-gold/30 bg-black shadow-2xl select-none cursor-ew-resize"
           >
             {/* UNDER LAYER: "AFTER" (Graded, Vibrant, Cinematic) */}
             <div className="absolute inset-0 w-full h-full overflow-hidden">
@@ -98,8 +95,8 @@ export const BeforeAfterSlider = () => {
                 playsInline
                 className="w-full h-full object-cover filter contrast-125 saturate-125 brightness-105"
               />
-              <div className="absolute top-4 right-4 z-10 px-3 py-1.5 rounded-lg bg-black/70 backdrop-blur-md text-white border border-emerald-500/30 text-xs font-mono flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+              <div className="absolute top-4 right-4 z-10 px-3 py-1.5 rounded-lg bg-brand-pine-950/80 backdrop-blur-md text-brand-gold border border-brand-gold/40 text-xs font-mono font-bold flex items-center gap-2 shadow-lg">
+                <span className="w-2 h-2 rounded-full bg-brand-gold animate-pulse" />
                 <span>{t('beforeAfter.afterLabel')}</span>
               </div>
             </div>
@@ -122,47 +119,47 @@ export const BeforeAfterSlider = () => {
                   loop
                   muted
                   playsInline
-                  className="w-full h-full object-cover filter saturate-50 contrast-75 brightness-110 sepia-[0.15]"
+                  className="w-full h-full object-cover filter saturate-40 contrast-70 brightness-110 sepia-[0.2]"
                 />
-                <div className="absolute top-4 left-4 z-10 px-3 py-1.5 rounded-lg bg-black/70 backdrop-blur-md text-neutral-300 border border-white/10 text-xs font-mono flex items-center gap-2">
+                <div className="absolute top-4 left-4 z-10 px-3 py-1.5 rounded-lg bg-black/80 backdrop-blur-md text-neutral-300 border border-white/10 text-xs font-mono font-bold flex items-center gap-2 shadow-lg">
                   <span className="w-2 h-2 rounded-full bg-neutral-400" />
                   <span>{t('beforeAfter.beforeLabel')}</span>
                 </div>
               </div>
             </div>
 
-            {/* DIVIDER HANDLE */}
+            {/* DIVIDER HANDLE styled with Logo Gold */}
             <div
-              className="absolute inset-y-0 w-1 bg-white shadow-[0_0_12px_rgba(255,255,255,0.8)] z-20 pointer-events-none"
+              className="absolute inset-y-0 w-1 bg-brand-gold shadow-[0_0_15px_rgba(229,168,59,0.9)] z-20 pointer-events-none"
               style={{ left: `${sliderPosition}%` }}
             >
-              <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-9 h-9 rounded-full bg-white text-neutral-900 flex items-center justify-center shadow-xl border-2 border-neutral-900 pointer-events-auto">
-                <Sliders className="w-4 h-4 rotate-90" />
+              <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-brand-gold text-brand-pine-950 flex items-center justify-center shadow-2xl border-2 border-brand-pine-950 pointer-events-auto">
+                <Sliders className="w-5 h-5 rotate-90 stroke-[2.5]" />
               </div>
             </div>
 
             {/* Drag Hint at the bottom */}
             <div className="absolute bottom-4 inset-x-0 flex justify-center z-20 pointer-events-none">
-              <span className="px-3.5 py-1.5 rounded-full bg-black/70 backdrop-blur-md text-neutral-300 text-xs font-mono border border-white/10">
+              <span className="px-4 py-1.5 rounded-full bg-black/80 backdrop-blur-md text-brand-gold text-xs font-mono font-bold border border-brand-gold/30 shadow-lg">
                 ⟵ {t('beforeAfter.tip')} ⟶
               </span>
             </div>
           </div>
 
-          {/* 3 Pill Features Below */}
+          {/* 3 Features Below */}
           <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
             {features.map((feat, i) => (
               <div
                 key={i}
-                className="p-5 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 text-start"
+                className="p-5 rounded-xl border border-brand-pine-900/10 dark:border-brand-pine-800 bg-white dark:bg-brand-pine-900 text-start shadow-sm"
               >
-                <div className="w-8 h-8 rounded-lg bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center text-neutral-900 dark:text-white mb-3">
-                  {i === 0 ? <Sparkles className="w-4 h-4 text-amber-500" /> : i === 1 ? <Volume2 className="w-4 h-4 text-emerald-500" /> : <Eye className="w-4 h-4 text-blue-500" />}
+                <div className="w-9 h-9 rounded-lg bg-brand-gold/10 border border-brand-gold/25 flex items-center justify-center text-brand-gold mb-3">
+                  {i === 0 ? <Sparkles className="w-4 h-4" /> : i === 1 ? <Volume2 className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                 </div>
-                <h4 className="text-sm font-bold text-neutral-900 dark:text-white">
+                <h4 className="text-sm font-bold text-brand-pine-950 dark:text-brand-cream-ivory">
                   {feat.title}
                 </h4>
-                <p className="mt-1.5 text-xs text-neutral-500 dark:text-neutral-400 leading-relaxed">
+                <p className="mt-1.5 text-xs text-brand-pine-700/80 dark:text-brand-cream-300/70 leading-relaxed">
                   {feat.desc}
                 </p>
               </div>
