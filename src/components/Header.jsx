@@ -49,7 +49,7 @@ export const Header = () => {
           <div className="flex flex-col text-start">
             <span className="font-extrabold text-base sm:text-lg tracking-tight text-[#07231D] dark:text-[#F7EFE4] flex items-center gap-2">
               {lang === 'ar' ? 'يوسف البدري' : 'Youssef El-Badry'}
-              <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-[#E5A83B]/15 text-[#E5A83B] border border-[#E5A83B]/30">
+              <span className="hidden sm:inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-[#E5A83B]/15 text-[#E5A83B] border border-[#E5A83B]/30">
                 {lang === 'ar' ? 'متاح للعمل' : 'Available'}
               </span>
             </span>

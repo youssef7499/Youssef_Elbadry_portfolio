@@ -45,12 +45,12 @@ export const ProjectShowcase = () => {
           </div>
 
           {/* Filter Tabs */}
-          <div className="flex flex-wrap gap-2 p-1.5 rounded-xl border border-[#07231D]/10 dark:border-[#E5A83B]/20 bg-[#F4EFE6] dark:bg-[#092821] self-start md:self-auto shadow-sm">
+          <div className="flex items-center gap-1.5 p-1.5 rounded-xl border border-[#07231D]/10 dark:border-[#E5A83B]/20 bg-[#F4EFE6] dark:bg-[#092821] w-full sm:w-auto overflow-x-auto shadow-sm">
             {filterTabs.map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveFilter(tab.id)}
-                className={`px-3.5 py-1.5 text-xs font-bold rounded-lg transition-all ${
+                className={`px-3 py-1.5 text-xs font-bold rounded-lg transition-all whitespace-nowrap flex-shrink-0 ${
                   activeFilter === tab.id
                     ? 'bg-[#E5A83B] text-[#07231D] shadow-md font-black'
                     : 'text-[#416358] dark:text-[#A3BFB7] hover:text-[#E5A83B] hover:bg-[#E5A83B]/10'

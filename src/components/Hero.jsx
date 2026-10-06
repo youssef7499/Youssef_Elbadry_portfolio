@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import { Play, MessageCircle, ArrowDown, Volume2, VolumeX } from 'lucide-react';
+import { Play, MessageCircle, ArrowDown, Volume2, VolumeX, ShieldCheck } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export const Hero = ({ onOpenShowreel }) => {
@@ -17,28 +17,28 @@ export const Hero = ({ onOpenShowreel }) => {
   };
 
   return (
-    <section className="relative pt-28 pb-16 md:pt-36 md:pb-28 overflow-hidden bg-[#FAF7F2] dark:bg-[#06201A]">
+    <section className="relative pt-24 pb-16 md:pt-36 md:pb-28 overflow-hidden bg-[#FAF7F2] dark:bg-[#06201A]">
       {/* Background Radial Glow in Logo Colors */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#E5A83B]/10 rounded-full blur-[130px] pointer-events-none" />
-      <div className="absolute top-1/3 right-10 w-[450px] h-[450px] bg-[#1F6151]/15 rounded-full blur-[110px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[600px] h-[350px] sm:h-[600px] bg-[#E5A83B]/10 rounded-full blur-[100px] sm:blur-[130px] pointer-events-none" />
+      <div className="absolute top-1/3 right-4 sm:right-10 w-[280px] sm:w-[450px] h-[280px] sm:h-[450px] bg-[#1F6151]/15 rounded-full blur-[90px] sm:blur-[110px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center">
           
           {/* Text Content (Left on LTR / Right on RTL) */}
-          <div className="lg:col-span-7 flex flex-col justify-center text-start space-y-6">
+          <div className="lg:col-span-7 flex flex-col justify-center text-start space-y-5 sm:space-y-6">
             
             {/* Top Pill Badge with Logo Emblem */}
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full text-xs font-mono tracking-wider border border-[#E5A83B]/40 bg-[#E5A83B]/10 text-[#07231D] dark:text-[#F7EFE4] w-fit shadow-sm font-bold"
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-[11px] sm:text-xs font-mono tracking-wider border border-[#E5A83B]/40 bg-[#E5A83B]/10 text-[#07231D] dark:text-[#F7EFE4] w-fit shadow-sm font-bold"
             >
               <img
                 src="/logo.jpg"
                 alt="Logo"
-                className="w-4 h-4 rounded-full ring-1 ring-[#E5A83B]"
+                className="w-4 h-4 rounded-full ring-1 ring-[#E5A83B] flex-shrink-0"
               />
               <span className="text-[#E5A83B]">★</span>
               <span>{t('hero.badge')}</span>
@@ -55,7 +55,7 @@ export const Hero = ({ onOpenShowreel }) => {
                 {t('hero.greeting')}
               </p>
               
-              <h1 className="text-4xl sm:text-6xl xl:text-7xl font-extrabold tracking-tight text-[#07231D] dark:text-[#F7EFE4] leading-[1.08]">
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight text-[#07231D] dark:text-[#F7EFE4] leading-[1.1]">
                 {lang === 'ar' ? (
                   <>
                     <span className="block font-black text-[#07231D] dark:text-[#F7EFE4]">
@@ -64,7 +64,7 @@ export const Hero = ({ onOpenShowreel }) => {
                     <span className="block font-black text-[#E5A83B]">
                       البدري
                     </span>
-                    <span className="block text-xl sm:text-3xl font-semibold text-[#416358] dark:text-[#A3BFB7] mt-2">
+                    <span className="block text-lg sm:text-2xl lg:text-3xl font-semibold text-[#416358] dark:text-[#A3BFB7] mt-1.5 sm:mt-2">
                       {t('hero.role')}
                     </span>
                   </>
@@ -76,7 +76,7 @@ export const Hero = ({ onOpenShowreel }) => {
                     <span className="block font-black tracking-tight text-[#E5A83B]">
                       El-Badry
                     </span>
-                    <span className="block text-xl sm:text-2xl font-mono font-medium text-[#416358] dark:text-[#A3BFB7] mt-2 tracking-normal">
+                    <span className="block text-lg sm:text-2xl font-mono font-medium text-[#416358] dark:text-[#A3BFB7] mt-1.5 sm:mt-2 tracking-normal">
                       // {t('hero.role')}
                     </span>
                   </>
@@ -89,7 +89,7 @@ export const Hero = ({ onOpenShowreel }) => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-base sm:text-lg text-[#38534A] dark:text-[#C5D8D2] leading-relaxed max-w-2xl font-light"
+              className="text-sm sm:text-base lg:text-lg text-[#38534A] dark:text-[#C5D8D2] leading-relaxed max-w-2xl font-light"
             >
               {t('hero.description')}
             </motion.p>
@@ -99,11 +99,11 @@ export const Hero = ({ onOpenShowreel }) => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex flex-wrap items-center gap-3.5 pt-2"
+              className="flex flex-wrap items-center gap-3 pt-1"
             >
               <a
                 href="#projects"
-                className="px-6 py-3.5 rounded-xl bg-[#E5A83B] hover:bg-[#F5BD55] text-[#07231D] font-extrabold text-sm tracking-wide active:scale-95 transition-all shadow-lg shadow-[#E5A83B]/25 flex items-center gap-2"
+                className="w-full sm:w-auto justify-center px-6 py-3.5 rounded-xl bg-[#E5A83B] hover:bg-[#F5BD55] text-[#07231D] font-extrabold text-sm tracking-wide active:scale-95 transition-all shadow-lg shadow-[#E5A83B]/25 flex items-center gap-2"
               >
                 <span>{t('hero.ctaPrimary')}</span>
                 <ArrowDown className="w-4 h-4 stroke-[2.5]" />
@@ -113,7 +113,7 @@ export const Hero = ({ onOpenShowreel }) => {
                 href="https://wa.me/201144735499"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-3.5 rounded-xl border border-[#07231D]/15 dark:border-[#E5A83B]/30 bg-white dark:bg-[#0D332B] hover:bg-[#FAF7F2] dark:hover:bg-[#092821] text-[#07231D] dark:text-[#F7EFE4] font-bold text-sm tracking-wide active:scale-95 transition-all flex items-center gap-2.5 shadow-sm"
+                className="w-full sm:w-auto justify-center px-6 py-3.5 rounded-xl border border-[#07231D]/15 dark:border-[#E5A83B]/30 bg-white dark:bg-[#0D332B] hover:bg-[#FAF7F2] dark:hover:bg-[#092821] text-[#07231D] dark:text-[#F7EFE4] font-bold text-sm tracking-wide active:scale-95 transition-all flex items-center gap-2.5 shadow-sm"
               >
                 <MessageCircle className="w-4 h-4 text-emerald-500 fill-emerald-500/20" />
                 <span>{t('hero.ctaSecondary')}</span>
@@ -125,29 +125,29 @@ export const Hero = ({ onOpenShowreel }) => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="pt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 border-t border-[#07231D]/10 dark:border-[#E5A83B]/20"
+              className="pt-5 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 border-t border-[#07231D]/10 dark:border-[#E5A83B]/20"
             >
               <div className="space-y-0.5">
-                <span className="text-xl sm:text-2xl font-black font-mono text-[#E5A83B]">3</span>
-                <p className="text-xs text-[#416358] dark:text-[#A3BFB7] font-semibold">
+                <span className="text-lg sm:text-2xl font-black font-mono text-[#E5A83B]">3</span>
+                <p className="text-[11px] sm:text-xs text-[#416358] dark:text-[#A3BFB7] font-semibold">
                   {lang === 'ar' ? 'مؤسسات إسلامية' : 'Islamic Institutes'}
                 </p>
               </div>
               <div className="space-y-0.5">
-                <span className="text-xl sm:text-2xl font-black font-mono text-[#07231D] dark:text-[#F7EFE4]">50M+</span>
-                <p className="text-xs text-[#416358] dark:text-[#A3BFB7] font-semibold">
+                <span className="text-lg sm:text-2xl font-black font-mono text-[#07231D] dark:text-[#F7EFE4]">50M+</span>
+                <p className="text-[11px] sm:text-xs text-[#416358] dark:text-[#A3BFB7] font-semibold">
                   {lang === 'ar' ? 'مشاهدات محققة' : 'Platform Views'}
                 </p>
               </div>
               <div className="space-y-0.5">
-                <span className="text-xl sm:text-2xl font-black font-mono text-[#07231D] dark:text-[#F7EFE4]">300+</span>
-                <p className="text-xs text-[#416358] dark:text-[#A3BFB7] font-semibold">
+                <span className="text-lg sm:text-2xl font-black font-mono text-[#07231D] dark:text-[#F7EFE4]">300+</span>
+                <p className="text-[11px] sm:text-xs text-[#416358] dark:text-[#A3BFB7] font-semibold">
                   {lang === 'ar' ? 'فيديو منجز' : 'Videos Delivered'}
                 </p>
               </div>
               <div className="space-y-0.5">
-                <span className="text-xl sm:text-2xl font-black font-mono text-[#E5A83B]">68%+</span>
-                <p className="text-xs text-[#416358] dark:text-[#A3BFB7] font-semibold">
+                <span className="text-lg sm:text-2xl font-black font-mono text-[#E5A83B]">68%+</span>
+                <p className="text-[11px] sm:text-xs text-[#416358] dark:text-[#A3BFB7] font-semibold">
                   {lang === 'ar' ? 'متوسط البقاء' : 'Avg. Retention'}
                 </p>
               </div>
@@ -160,14 +160,14 @@ export const Hero = ({ onOpenShowreel }) => {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="lg:col-span-5 relative group"
+            className="lg:col-span-5 relative w-full"
           >
             {/* Ambient Backlight Glow */}
-            <div className="absolute -inset-1.5 bg-gradient-to-r from-[#E5A83B]/30 to-[#1F6151]/30 rounded-3xl blur-xl opacity-75 group-hover:opacity-100 transition duration-700 pointer-events-none" />
+            <div className="absolute -inset-1.5 bg-gradient-to-r from-[#E5A83B]/30 to-[#1F6151]/30 rounded-3xl blur-xl opacity-75 pointer-events-none" />
 
-            {/* Decorative Studio Frame */}
+            {/* Video Container Frame */}
             <div
-              className="relative rounded-2xl overflow-hidden border-2 border-[#E5A83B]/40 bg-[#041612] shadow-2xl aspect-[4/5] sm:aspect-[3/4] cursor-pointer"
+              className="relative rounded-2xl overflow-hidden border-2 border-[#E5A83B]/40 bg-[#041612] shadow-2xl aspect-[4/5] sm:aspect-[3/4] cursor-pointer group"
               onClick={() => onOpenShowreel && onOpenShowreel()}
             >
               {/* Actual Video Stream */}
@@ -186,8 +186,8 @@ export const Hero = ({ onOpenShowreel }) => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-black/30 pointer-events-none" />
 
               {/* Top Bar with Badge & Audio Toggle */}
-              <div className="absolute top-4 inset-x-4 flex items-center justify-between z-20">
-                <div className="px-3 py-1 rounded-md bg-black/75 backdrop-blur-md border border-[#E5A83B]/40 text-[11px] font-mono text-[#F7EFE4] flex items-center gap-1.5 font-bold">
+              <div className="absolute top-3 sm:top-4 inset-x-3 sm:inset-x-4 flex items-center justify-between z-20">
+                <div className="px-2.5 sm:px-3 py-1 rounded-md bg-black/75 backdrop-blur-md border border-[#E5A83B]/40 text-[10px] sm:text-[11px] font-mono text-[#F7EFE4] flex items-center gap-1.5 font-bold">
                   <span className="w-2 h-2 rounded-full bg-[#E5A83B] animate-pulse" />
                   <span>SHOWREEL 2026</span>
                 </div>
@@ -203,36 +203,45 @@ export const Hero = ({ onOpenShowreel }) => {
 
               {/* Center Play Button Overlay */}
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div className="w-16 h-16 rounded-full bg-[#E5A83B] text-[#07231D] flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform duration-300 pl-0.5">
-                  <Play className="w-7 h-7 fill-current" />
+                <div className="w-14 sm:w-16 h-14 sm:h-16 rounded-full bg-[#E5A83B] text-[#07231D] flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform duration-300 pl-0.5">
+                  <Play className="w-6 sm:w-7 h-6 sm:h-7 fill-current" />
                 </div>
               </div>
 
-              {/* Bottom Caption */}
-              <div className="absolute bottom-4 inset-x-4 z-20 text-[#F7EFE4] text-start">
-                <p className="text-xs font-mono text-[#E5A83B] uppercase tracking-wider font-bold">
-                  {lang === 'ar' ? 'انقر لتشغيل العرض الكامل' : 'Click to Watch Full Showreel'}
-                </p>
-                <h4 className="text-base font-bold tracking-tight text-white mt-0.5">
-                  {lang === 'ar' ? 'أفضل إنتاجات المؤسسات الإسلامية واليوتيوب' : 'Featured Institutional Productions'}
-                </h4>
+              {/* Bottom Caption Container with Frosted Backdrop (No overlapping!) */}
+              <div className="absolute bottom-3 sm:bottom-4 inset-x-3 sm:inset-x-4 z-20">
+                <div className="p-3 sm:p-3.5 rounded-xl bg-black/75 backdrop-blur-md border border-white/10 text-start shadow-lg">
+                  <p className="text-[10px] sm:text-xs font-mono text-[#E5A83B] uppercase tracking-wider font-bold">
+                    {lang === 'ar' ? 'انقر لتشغيل شو ريل الأعمال' : 'Click to Watch Master Showreel'}
+                  </p>
+                  <h4 className="text-xs sm:text-sm font-bold tracking-tight text-white mt-0.5 truncate">
+                    {lang === 'ar' ? 'أفضل إنتاجات المؤسسات الإسلامية واليوتيوب' : 'Featured Institutional Productions'}
+                  </h4>
+                </div>
               </div>
             </div>
 
-            {/* Floating Identity Stamp with Actual Logo */}
-            <div className="absolute -bottom-4 -right-4 sm:-bottom-5 sm:-right-5 bg-white dark:bg-[#0D332B] border-2 border-[#E5A83B]/50 p-3 sm:p-3.5 rounded-2xl shadow-2xl flex items-center gap-3 backdrop-blur-md">
-              <img
-                src="/logo.jpg"
-                alt="Youssef El-Badry"
-                className="w-10 h-10 rounded-full object-cover ring-2 ring-[#E5A83B]"
-              />
-              <div className="text-start">
-                <p className="text-xs font-extrabold text-[#07231D] dark:text-[#F7EFE4]">
-                  {lang === 'ar' ? 'يوسف البدري' : 'Youssef El-Badry'}
-                </p>
-                <p className="text-[10px] text-[#E5A83B] font-mono font-bold">
-                  Bilqalam · IslamRoots · Quran Grace
-                </p>
+            {/* Clean Identity Bar Placed Directly Below Video (Zero overlap, mobile-friendly!) */}
+            <div className="mt-3.5 p-3 sm:p-3.5 rounded-xl border border-[#07231D]/10 dark:border-[#E5A83B]/25 bg-white dark:bg-[#0D332B] shadow-lg flex items-center justify-between gap-3">
+              <div className="flex items-center gap-3">
+                <img
+                  src="/logo.jpg"
+                  alt="Youssef El-Badry"
+                  className="w-10 h-10 rounded-full object-cover ring-2 ring-[#E5A83B] flex-shrink-0"
+                />
+                <div className="text-start">
+                  <p className="text-xs sm:text-sm font-extrabold text-[#07231D] dark:text-[#F7EFE4] leading-tight">
+                    {lang === 'ar' ? 'يوسف البدري' : 'Youssef El-Badry'}
+                  </p>
+                  <p className="text-[10px] sm:text-[11px] text-[#E5A83B] font-mono font-bold mt-0.5">
+                    Bilqalam · IslamRoots · Quran Grace
+                  </p>
+                </div>
+              </div>
+
+              <div className="hidden sm:flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-bold bg-[#E5A83B]/15 text-[#E5A83B] border border-[#E5A83B]/30 whitespace-nowrap">
+                <ShieldCheck className="w-3.5 h-3.5" />
+                <span>{lang === 'ar' ? 'محرر معتمد' : 'Lead Editor'}</span>
               </div>
             </div>
 

@@ -81,7 +81,7 @@ export const BeforeAfterSlider = () => {
             onTouchStart={() => setIsDragging(true)}
             onTouchEnd={() => setIsDragging(false)}
             onTouchMove={handleTouchMove}
-            className="relative w-full aspect-video rounded-2xl overflow-hidden border-2 border-[#E5A83B]/40 bg-black shadow-2xl select-none cursor-ew-resize"
+            className="relative w-full aspect-video rounded-2xl overflow-hidden border-2 border-[#E5A83B]/40 bg-black shadow-2xl select-none cursor-ew-resize touch-none"
           >
             {/* UNDER LAYER: "AFTER" (Graded, Vibrant, Cinematic) */}
             <div className="absolute inset-0 w-full h-full overflow-hidden">
