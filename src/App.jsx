@@ -30,7 +30,7 @@ function PortfolioContent() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-white dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100 selection:bg-neutral-900 selection:text-white dark:selection:bg-white dark:selection:text-neutral-900 transition-colors duration-300">
+    <div className="min-h-screen flex flex-col bg-[#FAF7F2] dark:bg-[#06201A] text-[#07231D] dark:text-[#F7EFE4] selection:bg-[#E5A83B] selection:text-[#06201A] transition-colors duration-300">
       <Header />
       <main className="flex-1">
         <Hero onOpenShowreel={() => setShowreelOpen(true)} />

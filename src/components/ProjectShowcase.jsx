@@ -26,34 +26,34 @@ export const ProjectShowcase = () => {
   ];
 
   return (
-    <section id="projects" className="py-24 relative">
+    <section id="projects" className="py-24 relative bg-[#FAF7F2] dark:bg-[#06201A]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6 text-start">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md text-xs font-mono uppercase tracking-wider text-brand-gold bg-brand-gold/10 border border-brand-gold/30 mb-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md text-xs font-mono uppercase tracking-wider text-[#E5A83B] bg-[#E5A83B]/10 border border-[#E5A83B]/30 mb-3 font-bold">
               <Film className="w-3.5 h-3.5" />
               <span>{t('projects.badge')}</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-brand-pine-950 dark:text-brand-cream-ivory">
+            <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-[#07231D] dark:text-[#F7EFE4]">
               {t('projects.title')}
             </h2>
-            <p className="mt-3 text-sm sm:text-base text-brand-pine-700/80 dark:text-brand-cream-300/80">
+            <p className="mt-3 text-sm sm:text-base text-[#416358] dark:text-[#A3BFB7]">
               {t('projects.subtitle')}
             </p>
           </div>
 
           {/* Filter Tabs */}
-          <div className="flex flex-wrap gap-2 p-1.5 rounded-xl border border-brand-pine-900/10 dark:border-brand-pine-800 bg-brand-cream-100/60 dark:bg-brand-pine-900/80 self-start md:self-auto shadow-sm">
+          <div className="flex flex-wrap gap-2 p-1.5 rounded-xl border border-[#07231D]/10 dark:border-[#E5A83B]/20 bg-[#F4EFE6] dark:bg-[#092821] self-start md:self-auto shadow-sm">
             {filterTabs.map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveFilter(tab.id)}
                 className={`px-3.5 py-1.5 text-xs font-bold rounded-lg transition-all ${
                   activeFilter === tab.id
-                    ? 'bg-brand-gold text-brand-pine-950 shadow-md font-bold'
-                    : 'text-brand-pine-700 dark:text-brand-cream-300/70 hover:text-brand-gold hover:bg-brand-gold/10'
+                    ? 'bg-[#E5A83B] text-[#07231D] shadow-md font-black'
+                    : 'text-[#416358] dark:text-[#A3BFB7] hover:text-[#E5A83B] hover:bg-[#E5A83B]/10'
                 }`}
               >
                 {tab.label}
@@ -116,14 +116,14 @@ const VideoCard = ({ project, index, lang, t, onClick }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.08 }}
-      className="group relative rounded-2xl overflow-hidden border border-brand-pine-900/10 dark:border-brand-gold/20 bg-white dark:bg-brand-pine-900 shadow-md hover:shadow-2xl hover:border-brand-gold/60 transition-all duration-300 flex flex-col cursor-pointer hover:-translate-y-1"
+      className="group relative rounded-2xl overflow-hidden border border-[#07231D]/10 dark:border-[#E5A83B]/25 bg-white dark:bg-[#0D332B] shadow-lg hover:shadow-2xl hover:border-[#E5A83B] dark:hover:border-[#E5A83B] transition-all duration-300 flex flex-col cursor-pointer hover:-translate-y-1"
       onClick={onClick}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
       {/* Video Frame displaying the actual video first frame natively (NO stock photos) */}
       <div
-        className={`relative w-full overflow-hidden bg-brand-pine-950 ${
+        className={`relative w-full overflow-hidden bg-[#041612] ${
           isVertical ? 'aspect-[9/13] sm:aspect-[9/14]' : 'aspect-video'
         }`}
       >
@@ -143,10 +143,10 @@ const VideoCard = ({ project, index, lang, t, onClick }) => {
 
         {/* Badges Overlay (Top) */}
         <div className="absolute top-3 inset-x-3 z-10 flex items-center justify-between pointer-events-none">
-          <span className="px-2.5 py-1 rounded-md text-[11px] font-mono font-bold uppercase tracking-wider bg-black/70 text-brand-gold border border-brand-gold/30 backdrop-blur-md">
+          <span className="px-2.5 py-1 rounded-md text-[11px] font-mono font-bold uppercase tracking-wider bg-black/75 text-[#E5A83B] border border-[#E5A83B]/40 backdrop-blur-md">
             {project.format}
           </span>
-          <span className="px-2.5 py-1 rounded-md text-[11px] font-bold bg-brand-pine-900/90 text-brand-cream-ivory border border-brand-gold/40 backdrop-blur-md">
+          <span className="px-2.5 py-1 rounded-md text-[11px] font-bold bg-[#07241E]/95 text-[#F7EFE4] border border-[#E5A83B]/40 backdrop-blur-md">
             {lang === 'ar' ? project.clientAr : project.clientEn}
           </span>
         </div>
@@ -154,8 +154,8 @@ const VideoCard = ({ project, index, lang, t, onClick }) => {
         {/* Play Icon Badge Center */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
           <div
-            className={`w-14 h-14 rounded-full bg-brand-gold text-brand-pine-950 flex items-center justify-center pl-0.5 shadow-2xl transition-all duration-300 ${
-              isHovered ? 'scale-110 shadow-brand-gold/40' : 'scale-90 opacity-90'
+            className={`w-14 h-14 rounded-full bg-[#E5A83B] text-[#07231D] flex items-center justify-center pl-0.5 shadow-2xl transition-all duration-300 ${
+              isHovered ? 'scale-110 shadow-[#E5A83B]/50' : 'scale-95 opacity-90'
             }`}
           >
             <Play className="w-6 h-6 fill-current" />
@@ -164,34 +164,34 @@ const VideoCard = ({ project, index, lang, t, onClick }) => {
 
         {/* Bottom Overlay Info (Views & Duration) */}
         <div className="absolute bottom-3 inset-x-3 z-10 flex items-center justify-between text-white text-xs font-mono">
-          <span className="flex items-center gap-1.5 bg-black/60 px-2.5 py-1 rounded-md backdrop-blur-sm border border-white/10 font-bold">
-            <Eye className="w-3.5 h-3.5 text-brand-gold" />
+          <span className="flex items-center gap-1.5 bg-black/70 px-2.5 py-1 rounded-md backdrop-blur-sm border border-white/10 font-bold">
+            <Eye className="w-3.5 h-3.5 text-[#E5A83B]" />
             <span>{project.views}</span>
           </span>
-          <span className="flex items-center gap-1.5 bg-black/60 px-2.5 py-1 rounded-md backdrop-blur-sm border border-white/10 font-bold">
-            <Clock className="w-3.5 h-3.5 text-brand-gold" />
+          <span className="flex items-center gap-1.5 bg-black/70 px-2.5 py-1 rounded-md backdrop-blur-sm border border-white/10 font-bold">
+            <Clock className="w-3.5 h-3.5 text-[#E5A83B]" />
             <span>{project.duration}</span>
           </span>
         </div>
       </div>
 
-      {/* Card Info Body */}
-      <div className="p-5 flex flex-col justify-between flex-1 text-start bg-brand-cream-50/50 dark:bg-brand-pine-900">
+      {/* Card Info Body - Explicit Dark background #0D332B & Light #FFFFFF */}
+      <div className="p-5 flex flex-col justify-between flex-1 text-start bg-white dark:bg-[#0D332B] transition-colors">
         <div>
-          <h3 className="text-base sm:text-lg font-bold text-brand-pine-950 dark:text-brand-cream-ivory group-hover:text-brand-gold transition-colors line-clamp-1">
+          <h3 className="text-base sm:text-lg font-bold text-[#07231D] dark:text-[#F7EFE4] group-hover:text-[#E5A83B] dark:group-hover:text-[#E5A83B] transition-colors line-clamp-1">
             {lang === 'ar' ? project.titleAr : project.titleEn}
           </h3>
-          <p className="mt-1.5 text-xs sm:text-sm text-brand-pine-700/80 dark:text-brand-cream-300/70 line-clamp-2 leading-relaxed">
+          <p className="mt-1.5 text-xs sm:text-sm text-[#416358] dark:text-[#A3BFB7] line-clamp-2 leading-relaxed">
             {lang === 'ar' ? project.descriptionAr : project.descriptionEn}
           </p>
         </div>
 
         {/* Tags */}
-        <div className="flex flex-wrap gap-1.5 mt-4 pt-3 border-t border-brand-pine-900/10 dark:border-brand-pine-800">
+        <div className="flex flex-wrap gap-1.5 mt-4 pt-3 border-t border-[#07231D]/10 dark:border-[#E5A83B]/15">
           {(lang === 'ar' ? project.tagsAr : project.tagsEn).map((tag, i) => (
             <span
               key={i}
-              className="text-[10px] font-mono font-semibold px-2 py-0.5 rounded bg-brand-gold/10 text-brand-gold border border-brand-gold/20"
+              className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-[#E5A83B]/15 text-[#E5A83B] border border-[#E5A83B]/30"
             >
               #{tag}
             </span>
