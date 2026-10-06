@@ -2,18 +2,19 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { projectsData } from '../data/projectsData';
 import { VideoModal } from './VideoModal';
-import { Play, Eye, Clock, Film, ChevronLeft, ChevronRight, Sparkles } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { Play, Eye, Clock, Film, ChevronLeft, ChevronRight } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export const ProjectShowcase = () => {
   const { lang, t, isRTL } = useLanguage();
   const [activeFilter, setActiveFilter] = useState('all');
   const [selectedProject, setSelectedProject] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [canScrollLeft, setCanScrollLeft] = useState(false);
-  const [canScrollRight, setCanScrollRight] = useState(true);
+  const [trackOffset, setTrackOffset] = useState(0);
 
-  const carouselRef = useRef(null);
+  const containerRef = useRef(null);
+  const cardRefs = useRef([]);
+  const touchStartRef = useRef(0);
 
   const filteredProjects = projectsData.filter((p) => {
     if (activeFilter === 'all') return true;
@@ -30,61 +31,70 @@ export const ProjectShowcase = () => {
     { id: 'documentary', label: t('projects.filterDocumentary') },
   ];
 
-  // Update scroll indicators and current index
-  const updateScrollState = () => {
-    if (!carouselRef.current) return;
-    const { scrollLeft, scrollWidth, clientWidth } = carouselRef.current;
-    
-    // In RTL, scrollLeft can be negative or inverted depending on browser implementation
-    const maxScroll = scrollWidth - clientWidth;
-    const absScroll = Math.abs(scrollLeft);
-    
-    setCanScrollLeft(absScroll > 20);
-    setCanScrollRight(absScroll < maxScroll - 20);
-
-    // Approximate active card index
-    const cardWidth = 330;
-    const index = Math.min(
-      filteredProjects.length - 1,
-      Math.max(0, Math.round(absScroll / cardWidth))
-    );
-    setCurrentIndex(index);
-  };
-
+  // Reset to first card when filter changes
   useEffect(() => {
-    const el = carouselRef.current;
-    if (el) {
-      el.addEventListener('scroll', updateScrollState);
-      updateScrollState();
-      return () => el.removeEventListener('scroll', updateScrollState);
-    }
-  }, [filteredProjects.length]);
+    setCurrentIndex(0);
+    setTrackOffset(0);
+  }, [activeFilter]);
 
-  // Smooth arrow navigation
-  const scrollByAmount = (direction) => {
-    if (!carouselRef.current) return;
-    const cardScrollStep = 360;
-    
-    // In Arabic RTL, scroll direction is reversed
-    let delta = direction === 'next' ? cardScrollStep : -cardScrollStep;
-    if (isRTL) {
-      delta = -delta;
+  // Recalculate track offset whenever currentIndex or filtered projects change
+  useEffect(() => {
+    if (cardRefs.current[currentIndex]) {
+      const cardEl = cardRefs.current[currentIndex];
+      setTrackOffset(cardEl.offsetLeft);
+    } else {
+      setTrackOffset(0);
     }
+  }, [currentIndex, filteredProjects.length]);
 
-    carouselRef.current.scrollBy({ left: delta, behavior: 'smooth' });
+  // Handle window resize recalculation
+  useEffect(() => {
+    const handleResize = () => {
+      if (cardRefs.current[currentIndex]) {
+        setTrackOffset(cardRefs.current[currentIndex].offsetLeft);
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [currentIndex]);
+
+  const handleNext = () => {
+    if (currentIndex < filteredProjects.length - 1) {
+      setCurrentIndex((prev) => prev + 1);
+    }
   };
 
-  // Click dot to jump directly to card
-  const scrollToCard = (index) => {
-    if (!carouselRef.current) return;
-    const cardWidth = 350;
-    const targetLeft = isRTL ? -index * cardWidth : index * cardWidth;
-    carouselRef.current.scrollTo({ left: targetLeft, behavior: 'smooth' });
-    setCurrentIndex(index);
+  const handlePrev = () => {
+    if (currentIndex > 0) {
+      setCurrentIndex((prev) => prev - 1);
+    }
+  };
+
+  // Mobile Touch Swipe Handling
+  const handleTouchStart = (e) => {
+    touchStartRef.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e) => {
+    const touchEnd = e.changedTouches[0].clientX;
+    const diff = touchStartRef.current - touchEnd;
+
+    // Minimum swipe threshold of 45px
+    if (Math.abs(diff) > 45) {
+      if (diff > 0) {
+        // Swiped Left
+        if (isRTL) handlePrev();
+        else handleNext();
+      } else {
+        // Swiped Right
+        if (isRTL) handleNext();
+        else handlePrev();
+      }
+    }
   };
 
   return (
-    <section id="projects" className="py-20 sm:py-24 relative bg-[#FAF7F2] dark:bg-[#06201A] overflow-hidden">
+    <section id="projects" className="pt-16 pb-12 sm:pt-20 sm:pb-16 relative bg-[#FAF7F2] dark:bg-[#06201A] overflow-hidden">
       
       {/* Background Subtle Gradient Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[450px] bg-[#E5A83B]/8 rounded-full blur-[140px] pointer-events-none" />
@@ -104,7 +114,7 @@ export const ProjectShowcase = () => {
                 {t('projects.title')}
               </h2>
               {/* Dynamic Project Counter Badge */}
-              <span className="text-xs font-mono font-bold px-3 py-1 rounded-full bg-[#E5A83B]/15 text-[#E5A83B] border border-[#E5A83B]/30">
+              <span className="text-xs font-mono font-bold px-3 py-1 rounded-full bg-[#E5A83B]/15 text-[#E5A83B] border border-[#E5A83B]/30 shadow-sm">
                 {String(currentIndex + 1).padStart(2, '0')} / {String(filteredProjects.length).padStart(2, '0')}
               </span>
             </div>
@@ -121,11 +131,8 @@ export const ProjectShowcase = () => {
               {filterTabs.map((tab) => (
                 <button
                   key={tab.id}
-                  onClick={() => {
-                    setActiveFilter(tab.id);
-                    if (carouselRef.current) carouselRef.current.scrollTo({ left: 0, behavior: 'smooth' });
-                  }}
-                  className={`px-3 py-1.5 text-xs font-bold rounded-lg transition-all whitespace-nowrap flex-shrink-0 ${
+                  onClick={() => setActiveFilter(tab.id)}
+                  className={`px-3 py-1.5 text-xs font-bold rounded-lg transition-all whitespace-nowrap flex-shrink-0 cursor-pointer ${
                     activeFilter === tab.id
                       ? 'bg-[#E5A83B] text-[#07231D] shadow-md font-black'
                       : 'text-[#416358] dark:text-[#A3BFB7] hover:text-[#E5A83B]'
@@ -139,16 +146,26 @@ export const ProjectShowcase = () => {
             {/* Header Arrow Navigation Buttons */}
             <div className="flex items-center gap-2">
               <button
-                onClick={() => scrollByAmount('prev')}
-                className="w-10 h-10 rounded-xl border-2 border-[#E5A83B]/40 bg-white dark:bg-[#0D332B] hover:bg-[#E5A83B] hover:text-[#07231D] text-[#E5A83B] flex items-center justify-center transition-all duration-200 shadow-md active:scale-95 cursor-pointer"
+                onClick={handlePrev}
+                disabled={currentIndex === 0}
+                className={`w-10 h-10 rounded-xl border-2 border-[#E5A83B]/40 bg-white dark:bg-[#0D332B] text-[#E5A83B] flex items-center justify-center transition-all duration-200 shadow-md ${
+                  currentIndex === 0
+                    ? 'opacity-35 cursor-not-allowed'
+                    : 'hover:bg-[#E5A83B] hover:text-[#07231D] active:scale-95 cursor-pointer'
+                }`}
                 title={lang === 'ar' ? 'السابق' : 'Previous'}
               >
                 {isRTL ? <ChevronRight className="w-5 h-5 stroke-[2.5]" /> : <ChevronLeft className="w-5 h-5 stroke-[2.5]" />}
               </button>
 
               <button
-                onClick={() => scrollByAmount('next')}
-                className="w-10 h-10 rounded-xl border-2 border-[#E5A83B]/40 bg-white dark:bg-[#0D332B] hover:bg-[#E5A83B] hover:text-[#07231D] text-[#E5A83B] flex items-center justify-center transition-all duration-200 shadow-md active:scale-95 cursor-pointer"
+                onClick={handleNext}
+                disabled={currentIndex === filteredProjects.length - 1}
+                className={`w-10 h-10 rounded-xl border-2 border-[#E5A83B]/40 bg-white dark:bg-[#0D332B] text-[#E5A83B] flex items-center justify-center transition-all duration-200 shadow-md ${
+                  currentIndex === filteredProjects.length - 1
+                    ? 'opacity-35 cursor-not-allowed'
+                    : 'hover:bg-[#E5A83B] hover:text-[#07231D] active:scale-95 cursor-pointer'
+                }`}
                 title={lang === 'ar' ? 'التالي' : 'Next'}
               >
                 {isRTL ? <ChevronLeft className="w-5 h-5 stroke-[2.5]" /> : <ChevronRight className="w-5 h-5 stroke-[2.5]" />}
@@ -159,12 +176,22 @@ export const ProjectShowcase = () => {
 
       </div>
 
-      {/* HORIZONTAL CAROUSEL TRACK (Pure Arrow & Touch Driven - No vertical scroll hijacking) */}
-      <div className="relative w-full">
+      {/* CAROUSEL TRACK (Pure Arrow Driven - Unwanted trackpad/mouse horizontal scroll completely blocked) */}
+      <div
+        ref={containerRef}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+        className="relative w-full overflow-hidden select-none"
+      >
         {/* Floating Side Left Arrow (Desktop) */}
         <button
-          onClick={() => scrollByAmount('prev')}
-          className="hidden lg:flex absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full border-2 border-[#E5A83B]/50 bg-[#06201A]/90 backdrop-blur-md text-[#E5A83B] hover:bg-[#E5A83B] hover:text-[#07231D] hover:scale-110 items-center justify-center transition-all shadow-xl active:scale-95 cursor-pointer"
+          onClick={handlePrev}
+          disabled={currentIndex === 0}
+          className={`hidden lg:flex absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full border-2 border-[#E5A83B]/50 bg-[#06201A]/90 backdrop-blur-md text-[#E5A83B] items-center justify-center transition-all shadow-xl ${
+            currentIndex === 0
+              ? 'opacity-0 pointer-events-none'
+              : 'hover:bg-[#E5A83B] hover:text-[#07231D] hover:scale-110 active:scale-95 cursor-pointer'
+          }`}
           title="Previous"
         >
           {isRTL ? <ChevronRight className="w-6 h-6 stroke-[2.5]" /> : <ChevronLeft className="w-6 h-6 stroke-[2.5]" />}
@@ -172,27 +199,38 @@ export const ProjectShowcase = () => {
 
         {/* Floating Side Right Arrow (Desktop) */}
         <button
-          onClick={() => scrollByAmount('next')}
-          className="hidden lg:flex absolute right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full border-2 border-[#E5A83B]/50 bg-[#06201A]/90 backdrop-blur-md text-[#E5A83B] hover:bg-[#E5A83B] hover:text-[#07231D] hover:scale-110 items-center justify-center transition-all shadow-xl active:scale-95 cursor-pointer"
+          onClick={handleNext}
+          disabled={currentIndex === filteredProjects.length - 1}
+          className={`hidden lg:flex absolute right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full border-2 border-[#E5A83B]/50 bg-[#06201A]/90 backdrop-blur-md text-[#E5A83B] items-center justify-center transition-all shadow-xl ${
+            currentIndex === filteredProjects.length - 1
+              ? 'opacity-0 pointer-events-none'
+              : 'hover:bg-[#E5A83B] hover:text-[#07231D] hover:scale-110 active:scale-95 cursor-pointer'
+          }`}
           title="Next"
         >
           {isRTL ? <ChevronLeft className="w-6 h-6 stroke-[2.5]" /> : <ChevronRight className="w-6 h-6 stroke-[2.5]" />}
         </button>
 
-        {/* Horizontal Carousel Viewport */}
-        <div
-          ref={carouselRef}
-          className="flex items-stretch gap-6 overflow-x-auto scroll-smooth px-4 sm:px-8 lg:px-16 pb-4 pt-1 no-scrollbar select-none"
+        {/* Framer Motion Smooth Sliding Track */}
+        <motion.div
+          animate={{ x: isRTL ? trackOffset : -trackOffset }}
+          transition={{ type: 'spring', stiffness: 280, damping: 30 }}
+          className="flex items-stretch gap-6 px-4 sm:px-8 lg:px-16 pb-4 pt-1"
         >
           {filteredProjects.map((project, index) => {
             const isWide = project.format === '16:9';
             return (
               <div
                 key={project.id}
-                className={`flex-shrink-0 transition-transform duration-300 ${
+                ref={(el) => (cardRefs.current[index] = el)}
+                className={`flex-shrink-0 transition-all duration-300 ${
                   isWide
                     ? 'w-[360px] sm:w-[460px] lg:w-[500px]'
                     : 'w-[280px] sm:w-[310px] lg:w-[330px]'
+                } ${
+                  index === currentIndex
+                    ? 'scale-100 opacity-100 ring-2 ring-[#E5A83B]/50 rounded-2xl'
+                    : 'scale-[0.98] opacity-80'
                 }`}
               >
                 <VideoCard
@@ -205,16 +243,16 @@ export const ProjectShowcase = () => {
               </div>
             );
           })}
-        </div>
+        </motion.div>
       </div>
 
-      {/* Bottom Controls: Step Dots & Mobile Navigation Hint */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      {/* Bottom Controls: Step Dots & Arrow Navigation Hint */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-5 flex flex-col sm:flex-row items-center justify-between gap-4">
         {/* Nav Hint */}
         <p className="text-xs font-mono text-[#E5A83B] font-bold">
           {lang === 'ar'
             ? '⟵ استخدم الأسهم للتنقل بين الفيديوهات ⟶'
-            : '⟵ Use arrows or swipe to navigate productions ⟶'}
+            : '⟵ Use arrows to navigate productions ⟶'}
         </p>
 
         {/* Clickable Step Dots */}
@@ -222,7 +260,7 @@ export const ProjectShowcase = () => {
           {filteredProjects.map((_, i) => (
             <button
               key={i}
-              onClick={() => scrollToCard(i)}
+              onClick={() => setCurrentIndex(i)}
               className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
                 i === currentIndex
                   ? 'w-7 bg-[#E5A83B] shadow-[0_0_10px_rgba(229,168,59,0.8)]'
@@ -266,9 +304,7 @@ const VideoCard = ({ project, index, lang, t, onClick }) => {
   };
 
   return (
-    <motion.div
-      whileHover={{ y: -6, scale: 1.02 }}
-      transition={{ duration: 0.25 }}
+    <div
       className="group relative rounded-2xl overflow-hidden border-2 border-[#07231D]/10 dark:border-[#E5A83B]/25 hover:border-[#E5A83B] dark:hover:border-[#E5A83B] bg-white dark:bg-[#0D332B] shadow-xl hover:shadow-[0_15px_35px_rgba(229,168,59,0.25)] transition-all duration-300 flex flex-col cursor-pointer select-none h-full"
       onClick={onClick}
       onMouseEnter={handleMouseEnter}
@@ -359,6 +395,6 @@ const VideoCard = ({ project, index, lang, t, onClick }) => {
           ))}
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
