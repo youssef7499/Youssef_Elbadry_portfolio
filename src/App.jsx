@@ -1,0 +1,64 @@
+import React, { useState } from 'react';
+import { LanguageProvider } from './context/LanguageContext';
+import { ThemeProvider } from './context/ThemeContext';
+import { Header } from './components/Header';
+import { Hero } from './components/Hero';
+import { InstituteSection } from './components/InstituteSection';
+import { ProjectShowcase } from './components/ProjectShowcase';
+import { BeforeAfterSlider } from './components/BeforeAfterSlider';
+import { WorkflowSection } from './components/WorkflowSection';
+import { ContactSection } from './components/ContactSection';
+import { Footer } from './components/Footer';
+import { VideoModal } from './components/VideoModal';
+
+function PortfolioContent() {
+  const [showreelOpen, setShowreelOpen] = useState(false);
+
+  const mainShowreel = {
+    id: "main-showreel",
+    titleEn: "Youssef El-Badry — Master Showreel 2026",
+    titleAr: "يوسف البدري — شو ريل الأعمال الرئيسي 2026",
+    clientEn: "Bilqalam · IslamRoots · Quran Grace",
+    clientAr: "بالقلم · جذور الإسلام · نعمة القرآن",
+    format: "16:9",
+    category: "youtube",
+    videoUrl: "/videos/The Teenage Prayer Struggle.mp4",
+    tagsEn: ["High Retention", "Sound Design", "Pacing", "Color Master"],
+    tagsAr: ["محتوى عالي البقاء", "هندسة صوتية", "إيقاع سريع", "تلوين سينمائي"],
+    descriptionEn: "A high-octane montage highlighting high-retention YouTube edits, dynamic short-form hooks, and spiritual cinematic sequences.",
+    descriptionAr: "مونتاج متسارع يعرض أفضل إنتاجات اليوتيوب والمحتوى القصير المؤثر واللقطات السينمائية المعالجة باحترافية."
+  };
+
+  return (
+    <div className="min-h-screen flex flex-col bg-white dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100 selection:bg-neutral-900 selection:text-white dark:selection:bg-white dark:selection:text-neutral-900 transition-colors duration-300">
+      <Header />
+      <main className="flex-1">
+        <Hero onOpenShowreel={() => setShowreelOpen(true)} />
+        <InstituteSection />
+        <ProjectShowcase />
+        <BeforeAfterSlider />
+        <WorkflowSection />
+        <ContactSection />
+      </main>
+      <Footer />
+
+      {/* Global Showreel Modal */}
+      {showreelOpen && (
+        <VideoModal
+          project={mainShowreel}
+          onClose={() => setShowreelOpen(false)}
+        />
+      )}
+    </div>
+  );
+}
+
+export default function App() {
+  return (
+    <ThemeProvider>
+      <LanguageProvider>
+        <PortfolioContent />
+      </LanguageProvider>
+    </ThemeProvider>
+  );
+}
